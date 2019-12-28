@@ -76,6 +76,7 @@ Route::get('/Dashboard/schools/update/{id}','dashboard\schoolsController@update'
 Route::post('/Dashboard/schools/update','dashboard\schoolsController@updat');
 Route::get('/Dashboard/schools/show/{id}','dashboard\schoolsController@show');
 
+
 /***********
 
 MAIN
@@ -83,8 +84,16 @@ WEBSITE
 ROUTES
 
 ***********/
+Route::group(['middleware' => ['logged_in']], function () {
+  Route::get('/feed','mainController@feed');
+  Route::post('/feed/add_post','postsController@add');
+  Route::get('/feed/create_post','postsController@create');
+  Route::post('/ajax/addcomment','postsController@addcomment');
 
-Route::get('/feed','mainController@feed');
+});
+
+//Posts Views
+
 
 Auth::routes();
 

@@ -17,6 +17,8 @@ class CreateRepliesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('comment_id');
             $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('content');
             $table->timestamps();
         });

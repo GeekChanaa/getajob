@@ -12,6 +12,9 @@ class mainController extends Controller
 {
     //Feed View
     public function feed(){
-
+      $data=[
+        'list_posts' => post::all(),
+      ];
+      return view('jobbing.feed')->with($data);
     }
 }

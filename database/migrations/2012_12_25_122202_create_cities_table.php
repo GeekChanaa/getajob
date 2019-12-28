@@ -18,7 +18,7 @@ class CreateCitiesTable extends Migration
             $table->unsignedInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->string('name');
-            $table->boolean('flag');
+            $table->boolean('flag')->default(1);
             $table->timestamps();
         });
     }

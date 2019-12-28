@@ -14,12 +14,12 @@ class countriesController extends Controller
       $data=[
         'list_countries' => country::all(),
       ];
-      return view('dashboard.countries.list');
+      return view('dashboard.countries.list')->with($data);
     }
 
     //Create form country
     public function create(){
-      return view('dashboard.cities.create');
+      return view('dashboard.countries.create');
     }
 
     //Add country post

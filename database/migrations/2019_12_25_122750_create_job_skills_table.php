@@ -14,7 +14,7 @@ class CreateJobSkillsTable extends Migration
     public function up()
     {
         Schema::create('job_skills', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('job_id');
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->unsignedInteger('skill_id');

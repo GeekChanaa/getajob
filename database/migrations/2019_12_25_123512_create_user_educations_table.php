@@ -14,9 +14,15 @@ class CreateUserEducationsTable extends Migration
     public function up()
     {
         Schema::create('user_educations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('school');
-            
+            $table->string('diplomat');
+            $table->string('domain');
+            $table->integer('begin_year');
+            $table->integer('finish_year');
+            $table->string('result');
+            $table->text('others');
+            $table->text('description');
             $table->timestamps();
         });
     }

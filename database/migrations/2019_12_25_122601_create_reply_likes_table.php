@@ -14,7 +14,7 @@ class CreateReplyLikesTable extends Migration
     public function up()
     {
         Schema::create('reply_likes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('reply_id');
             $table->foreign('reply_id')->references('id')->on('replies')->onDelete('cascade');
             $table->unsignedInteger('user_id');

@@ -14,7 +14,7 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
             $table->unsignedInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

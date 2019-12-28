@@ -14,7 +14,7 @@ class CreatePagesFollowingsTable extends Migration
     public function up()
     {
         Schema::create('pages_followings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('page_id');

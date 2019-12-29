@@ -63,4 +63,12 @@ class countriesController extends Controller
       $country->save();
       return redirect('/Dashboard/countries');
     }
+
+    //Statistics views
+    public function statistics(){
+      $data=[
+        'nbc_countries' => country::all()->count(),
+      ];
+      return view('dashboard.countries.statistics')->with($data);
+    }
 }

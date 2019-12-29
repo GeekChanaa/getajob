@@ -92,4 +92,12 @@ class schoolsController extends Controller
     ];
     return view('dashboard.schools.show')->with($data);
   }
+
+  //Statistics views
+  public function statistics(){
+    $data=[
+      'nbr_schools' => school::all()->count(),
+    ];
+    return view('dashboard.schools.statistics')->with($data);
+  }
 }

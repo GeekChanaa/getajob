@@ -55,4 +55,12 @@ class usersController extends Controller
     ];
     return view('dashboard.users.show')->with($data);
   }
+
+  //Statistics views
+  public function statistics(){
+    $data=[
+      'nbr_users' => User::all()->count(),
+    ];
+    return view('dashboard.users.statistics')->with($data);
+  }
 }

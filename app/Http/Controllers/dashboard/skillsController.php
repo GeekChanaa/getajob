@@ -62,4 +62,12 @@ class skillsController extends Controller
     ];
     return view('dashboard.skills.show')->with($data);
   }
+
+  //Statistics views
+  public function statistics(){
+    $data=[
+      'nbr_skills' => skill::all()->count(),
+    ];
+    return view('dashboard.skills.statistics')->with($data);
+  }
 }

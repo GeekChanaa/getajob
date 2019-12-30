@@ -59,5 +59,13 @@ class citiesController extends Controller
       return redirect('/Dashboard/cities');
     }
 
+    //Statistics views
+    public function statistics(){
+      $data=[
+        'nbr_cities' => city::all()->count(),
+      ];
+      return view('dashboard.cities.statistics')->with($data);
+    }
+
 
 }

@@ -90,4 +90,12 @@ class enterprisesController extends Controller
     ];
     return view('dashboard.enterprises.show')->with($data);
   }
+
+  //Statistics views
+  public function statistics(){
+    $data=[
+      'nbr_enterprises' => enterprise::all()->count(),
+    ];
+    return view('dashboard.enterprises.statistics')->with($data);
+  }
 }

@@ -62,6 +62,16 @@ Route::get('/Dashboard/skills/update/{id}','dashboard\skillsController@update');
 Route::post('/Dashboard/skills/update','dashboard\skillsController@updat');
 Route::get('/Dashboard/skills/show/{id}','dashboard\skillsController@show');
 
+// Skills Routes
+Route::get('/Dashboard/domains','dashboard\domainsController@list');
+Route::get('/Dashboard/domains/create','dashboard\domainsController@create');
+Route::post('/Dashboard/domains/add','dashboard\domainsController@add');
+Route::delete('/Dashboard/domains/delete','dashboard\domainsController@delete');
+Route::get('/Dashboard/domains/statistics','dashboard\domainsController@statistics');
+Route::get('/Dashboard/domains/update/{id}','dashboard\domainsController@update');
+Route::post('/Dashboard/domains/update','dashboard\domainsController@updat');
+Route::get('/Dashboard/domains/show/{id}','dashboard\domainsController@show');
+
 // Enterprises Routes
 Route::get('/Dashboard/enterprises','dashboard\enterprisesController@list');
 Route::get('/Dashboard/enterprises/create','dashboard\enterprisesController@create');
@@ -99,6 +109,14 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::post('/ajax/addreply','postsController@addreply');
   Route::get('/feed/create_group','groupsController@create');
   Route::post('/feed/add_group','groupsController@add');
+  Route::post('/feed/add_page','pagesController@add');
+  Route::post('/feed/add_event','eventsController@add');
+  Route::post('/feed/add_seminar','seminarsController@add');
+  Route::post('/feed/add_training','trainingsController@add');
+  Route::get('/feed/create_page','pagesController@create');
+  Route::get('/feed/create_seminar','seminarsController@create');
+  Route::get('/feed/create_training','trainingsController@create');
+  Route::get('/feed/create_event','eventsController@create');
 });
 
 //Posts Views

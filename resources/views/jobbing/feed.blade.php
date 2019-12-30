@@ -3,6 +3,13 @@
 
 
 @section('content')
+<div class="">
+  <a class="btn btn-danger" href="{{url('/feed/create_page')}}">Create Page</a>
+  <a class="btn btn-danger" href="{{url('/feed/create_group')}}">Create Group</a>
+  <a class="btn btn-danger" href="{{url('/feed/create_event')}}">Create Event</a>
+  <a class="btn btn-danger" href="{{url('/feed/create_seminar')}}">Create Seminar</a>
+  <a class="btn btn-danger" href="{{url('/feed/create_training')}}">Create Training</a>
+</div>
 
 <div class="">
   <span>New post : </span>

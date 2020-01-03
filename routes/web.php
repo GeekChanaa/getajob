@@ -92,6 +92,91 @@ Route::post('/Dashboard/schools/update','dashboard\schoolsController@updat');
 Route::get('/Dashboard/schools/show/{id}','dashboard\schoolsController@show');
 Route::get('/Dashboard/schools/statistics','dashboard\schoolsController@statistics');
 
+// Languages Routes
+Route::get('/Dashboard/languages','dashboard\languagesController@list');
+Route::get('/Dashboard/languages/create','dashboard\languagesController@create');
+Route::post('/Dashboard/languages/add','dashboard\languagesController@add');
+Route::delete('/Dashboard/languages/delete','dashboard\languagesController@delete');
+Route::get('/Dashboard/languages/statistics','dashboard\languagesController@statistics');
+Route::get('/Dashboard/languages/update/{id}','dashboard\languagesController@update');
+Route::post('/Dashboard/languages/update','dashboard\languagesController@updat');
+Route::get('/Dashboard/languages/show/{id}','dashboard\languagesController@show');
+
+// Certifications Routes
+Route::get('/Dashboard/certifications','dashboard\certificationsController@list');
+Route::get('/Dashboard/certifications/create','dashboard\certificationsController@create');
+Route::post('/Dashboard/certifications/add','dashboard\certificationsController@add');
+Route::delete('/Dashboard/certifications/delete','dashboard\certificationsController@delete');
+Route::get('/Dashboard/certifications/statistics','dashboard\certificationsController@statistics');
+Route::get('/Dashboard/certifications/update/{id}','dashboard\certificationsController@update');
+Route::post('/Dashboard/certifications/update','dashboard\certificationsController@updat');
+Route::get('/Dashboard/certifications/show/{id}','dashboard\certificationsController@show');
+
+// Posts Routes
+Route::get('/Dashboard/posts','dashboard\postsController@list');
+Route::get('/Dashboard/posts/create','dashboard\postsController@create');
+Route::post('/Dashboard/posts/add','dashboard\postsController@add');
+Route::delete('/Dashboard/posts/delete','dashboard\postsController@delete');
+Route::get('/Dashboard/posts/statistics','dashboard\postsController@statistics');
+Route::get('/Dashboard/posts/update/{id}','dashboard\postsController@update');
+Route::post('/Dashboard/posts/update','dashboard\postsController@updat');
+Route::get('/Dashboard/posts/show/{id}','dashboard\postsController@show');
+
+// Seminars Routes
+Route::get('/Dashboard/seminars','dashboard\seminarsController@list');
+Route::get('/Dashboard/seminars/create','dashboard\seminarsController@create');
+Route::post('/Dashboard/seminars/add','dashboard\seminarsController@add');
+Route::delete('/Dashboard/seminars/delete','dashboard\seminarsController@delete');
+Route::get('/Dashboard/seminars/statistics','dashboard\seminarsController@statistics');
+Route::get('/Dashboard/seminars/update/{id}','dashboard\seminarsController@update');
+Route::post('/Dashboard/seminars/update','dashboard\seminarsController@updat');
+Route::get('/Dashboard/seminars/show/{id}','dashboard\seminarsController@show');
+
+// Trainings Routes
+Route::get('/Dashboard/trainings','dashboard\trainingsController@list');
+Route::get('/Dashboard/trainings/create','dashboard\trainingsController@create');
+Route::post('/Dashboard/trainings/add','dashboard\trainingsController@add');
+Route::delete('/Dashboard/trainings/delete','dashboard\trainingsController@delete');
+Route::get('/Dashboard/trainings/statistics','dashboard\trainingsController@statistics');
+Route::get('/Dashboard/trainings/update/{id}','dashboard\trainingsController@update');
+Route::post('/Dashboard/trainings/update','dashboard\trainingsController@updat');
+Route::get('/Dashboard/trainings/show/{id}','dashboard\trainingsController@show');
+
+// Functions Routes
+Route::get('/Dashboard/jfunctions','dashboard\jfunctionsController@list');
+Route::get('/Dashboard/jfunctions/create','dashboard\jfunctionsController@create');
+Route::post('/Dashboard/jfunctions/add','dashboard\jfunctionsController@add');
+Route::delete('/Dashboard/jfunctions/delete','dashboard\jfunctionsController@delete');
+Route::get('/Dashboard/jfunctions/statistics','dashboard\jfunctionsController@statistics');
+Route::get('/Dashboard/jfunctions/update/{id}','dashboard\jfunctionsController@update');
+Route::post('/Dashboard/jfunctions/update','dashboard\jfunctionsController@updat');
+Route::get('/Dashboard/jfunctions/show/{id}','dashboard\jfunctionsController@show');
+
+// Groups Routes
+Route::get('/Dashboard/groups','dashboard\groupsController@list');
+Route::delete('/Dashboard/groups/delete','dashboard\groupsController@delete');
+Route::get('/Dashboard/groups/statistics','dashboard\groupsController@statistics');
+Route::get('/Dashboard/groups/update/{id}','dashboard\groupsController@update');
+Route::post('/Dashboard/groups/update','dashboard\groupsController@updat');
+Route::get('/Dashboard/groups/show/{id}','dashboard\groupsController@show');
+
+// Pages Routes
+Route::get('/Dashboard/pages','dashboard\pagesController@list');
+Route::delete('/Dashboard/pages/delete','dashboard\pagesController@delete');
+Route::get('/Dashboard/pages/statistics','dashboard\pagesController@statistics');
+Route::get('/Dashboard/pages/update/{id}','dashboard\pagesController@update');
+Route::post('/Dashboard/pages/update','dashboard\pagesController@updat');
+Route::get('/Dashboard/pages/show/{id}','dashboard\pagesController@show');
+
+
+// Events Routes
+Route::get('/Dashboard/events','dashboard\eventsController@list');
+Route::delete('/Dashboard/events/delete','dashboard\eventsController@delete');
+Route::get('/Dashboard/events/statistics','dashboard\eventsController@statistics');
+Route::get('/Dashboard/events/update/{id}','dashboard\eventsController@update');
+Route::post('/Dashboard/events/update','dashboard\eventsController@updat');
+Route::get('/Dashboard/events/show/{id}','dashboard\eventsController@show');
+
 
 /***********
 

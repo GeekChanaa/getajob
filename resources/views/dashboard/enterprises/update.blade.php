@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/enterprises/add')}}" method="post">
+<form class="" action="{{url('/Dashboard/enterprises/update')}}" method="post">
 {{csrf_field()}}
 <div class="">
   <span>name : </span> <input type="text" name="name" value="{{$enterprise->name}}">
@@ -53,6 +53,8 @@
 <div class="">
   <span>website : </span> <input type="text" name="website" value="{{$enterprise->website}}">
 </div>
+<input type="hidden"  name="id" value="{{$enterprise->id}}">
+
 <button type="submit" name="button">Create</button>
 </form>
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\country;
 
 class usersController extends Controller
 {
@@ -28,8 +29,9 @@ class usersController extends Controller
 
   //Update User form
   public function update($id){
-    $user = User::where('id','=',$request->id)->first();
+    $user = User::where('id','=',$id)->first();
     $data=[
+      'list_countries' => country::all(),
       'user' => $user,
     ];
     return view('dashboard.users.update')->with($data);
@@ -39,17 +41,17 @@ class usersController extends Controller
   public function updat(Request $request){
     $user = User::where('id','=',$request->id)->first();
     $user->name = $request->name;
-    $user->phone = $request->industry;
-    $user->email = $request->founded;
-    $user->country_id = $request->founders;
-    $user->city_id = $request->headquarters;
+    $user->phone = $request->phone;
+    $user->email = $request->email;
+    $user->country_id = $request->country_id;
+    $user->city_id = $request->city_id;
     $user->save();
     return redirect('/Dashboard/users');
   }
 
   //Show User
   public function show($id){
-    $user = User::where('id','=',$d)->first();
+    $user = User::where('id','=',$id)->first();
     $data=[
       'user' => $user,
     ];

@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/countries/add')}}" method="post">
+<form class="" action="{{url('/Dashboard/countries/update')}}" method="post">
 {{csrf_field()}}
 <div class="">
   <span>name : </span> <input type="text" name="name" value="{{$country->name}}">
@@ -25,6 +25,8 @@
 <div class="">
   <span>currency : </span> <input type="text" name="currency" value="{{$country->currency}}">
 </div>
+<input type="hidden"  name="id" value="{{$country->id}}">
+
 <button type="submit" name="button">Create</button>
 </form>
 

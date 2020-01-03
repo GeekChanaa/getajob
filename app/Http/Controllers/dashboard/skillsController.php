@@ -39,7 +39,7 @@ class skillsController extends Controller
 
   //Update skill form
   public function update($id){
-    $skill = skill::where('id','=',$request->id)->first();
+    $skill = skill::where('id','=',$id)->first();
     $data=[
       'skill' => $skill,
     ];
@@ -56,7 +56,7 @@ class skillsController extends Controller
 
   //Show skill
   public function show($id){
-    $skill = skill::where('id','=',$d)->first();
+    $skill = skill::where('id','=',$id)->first();
     $data=[
       'skill' => $skill,
     ];

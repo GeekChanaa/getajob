@@ -14,7 +14,7 @@ class CreateSeminarInterestsTable extends Migration
     public function up()
     {
         Schema::create('seminar_interests', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('seminar_id');

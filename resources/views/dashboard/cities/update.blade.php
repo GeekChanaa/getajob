@@ -18,6 +18,8 @@
     @endforeach
   </select>
 </div>
+<input type="hidden"  name="id" value="{{$city->id}}">
+
 <button type="submit" name="button">Create</button>
 </form>
 

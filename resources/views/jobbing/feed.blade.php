@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 
 
@@ -654,103 +654,6 @@ $(document).on("click", ".comment", function(e){
    }});
   });
 
-
-// Adding replies
-
-$(document).on("click", ".reply", function(e){
-  var id = $(this).data('id');
-  e.preventDefault();
-  $.ajaxSetup({
-     headers: {
-         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-     }
-
-  });
-  jQuery.ajax({
-     url: "/ajax/addreply",
-     method: 'post',
-     data: {
-       id : id,
-       content : $('#reply-content-'+id).val(),
-     },
-     success: function(result){
-       alert(result.reply.content);
-
-     },
-     error: function(jqXHR, textStatus, errorThrown){
-       alert('error');
-   }});
-  });
-
-    });
-    jQuery.ajax({
-       url: "/ajax/addpost",
-       method: 'post',
-       data: {
-         content : $('#post-content').val(),
-       },
-       success: function(result){
-         alert(result.post.content);
-
-       },
-       error: function(jqXHR, textStatus, errorThrown){
-         alert('error');
-     }});
-    });
-
-  // Adding Comments
-  $(document).on("click", ".comment", function(e){
-    var id = $(this).data('id');
-    e.preventDefault();
-    $.ajaxSetup({
-       headers: {
-           'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-       }
-
-    });
-    jQuery.ajax({
-       url: "/ajax/addcomment",
-       method: 'post',
-       data: {
-         id : id,
-         content : $('#content-'+id).val(),
-       },
-       success: function(result){
-         alert(result.comment.content);
-
-       },
-       error: function(jqXHR, textStatus, errorThrown){
-         alert('error');
-     }});
-    });
-
-
-  // Adding replies
-
-  $(document).on("click", ".reply", function(e){
-    var id = $(this).data('id');
-    e.preventDefault();
-    $.ajaxSetup({
-       headers: {
-           'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-       }
-
-    });
-    jQuery.ajax({
-       url: "/ajax/addreply",
-       method: 'post',
-       data: {
-         id : id,
-         content : $('#reply-content-'+id).val(),
-       },
-       success: function(result){
-         alert(result.reply.content);
-
-       },
-       error: function(jqXHR, textStatus, errorThrown){
-         alert('error');
-     }});
-    });
 
 
 </script>

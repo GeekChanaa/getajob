@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\post_like;
+use auth;
 
 class post extends Model
 {
@@ -21,5 +22,12 @@ class post extends Model
     public function likes(){
       return $this->hasMany('App\post_like');
     }
+
+    // true
+    public function like(){
+      return true;
+      
+    }
+
 
 }

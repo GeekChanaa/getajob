@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\post;
 use App\comment;
 use App\reply;
+use App\post_like;
 use auth;
 
 class postsController extends Controller
@@ -74,4 +75,6 @@ class postsController extends Controller
     ];
     return view('dashboard.posts.statistics')->with($data);
   }
+
+
 }

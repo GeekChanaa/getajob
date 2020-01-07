@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserCertificationsTable extends Migration
+class CreatePageLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateUserCertificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_certifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('certification');
-            $table->string('issuing_organization');
-            $table->date('date_obtained')->nullable();
-            $table->date('expiry_date')->nullable();
+        Schema::create('page_likes', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
+            $table->unsignedInteger('page_id');
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
+            $table->unique(['user_id','page_id']);
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateUserCertificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_certifications');
+        Schema::dropIfExists('page_likes');
     }
 }

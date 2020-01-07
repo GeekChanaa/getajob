@@ -7,6 +7,13 @@ use App\post;
 use App\comment;
 use App\reply;
 use auth;
+use App\post_like;
+use App\comment_like;
+use App\reply_like;
+use App\post_report;
+use App\comment_report;
+use App\reply_report;
+
 
 use Response;
 
@@ -53,5 +60,62 @@ class postsController extends Controller
       $reply->comment_id = $request->id;
       $reply->save();
       return Response::json(array('success'=>true,'reply'=>$reply));
+    }
+
+    // Like post
+    public function likepost(Request $request){
+      $like = new post_like;
+      $like->post_id = $request->post_id;
+      $like->user_id = Auth::user()->id;
+      $like->save();
+    }
+
+    // Like comment
+    public function likecomment(Request $request){
+      $like = new comment_like;
+      $like->comment_id = $request->comment_id;
+      $like->user_id = Auth::user()->id;
+      $like->save();
+    }
+
+    // Like reply
+    public function likereply(Request $request){
+      $like = new reply_like;
+      $like->reply_id = $request->reply_id;
+      $like->user_id = Auth::user()->id;
+      $like->save();
+    }
+
+    // Like post
+    public function reportpost(Request $request){
+      $like = new post_report;
+      $like->post_id = $request->post_id;
+      $like->user_id = Auth::user()->id;
+      $like->save();
+    }
+
+    // Like comment
+    public function reportcomment(Request $request){
+      $like = new comment_report;
+      $like->comment_id = $request->comment_id;
+      $like->user_id = Auth::user()->id;
+      $like->save();
+    }
+
+    // Like reply
+    public function reportreply(Request $request){
+      $like = new reply_report;
+      $like->reply_id = $request->reply_id;
+      $like->user_id = Auth::user()->id;
+      $like->save();
+    }
+
+    // Post page
+    public function show($id){
+      $post = post::where('id','=',$id)->first();
+      $data=[
+        'post' => $post,
+      ];
+      return view('jobbing.posts.show')->with($data);
     }
 }

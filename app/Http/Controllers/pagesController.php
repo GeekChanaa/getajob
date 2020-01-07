@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\page;
+use App\page_like;
+use App\pages_following;
+use auth;
 
 class pagesController extends Controller
 {
@@ -23,5 +26,21 @@ class pagesController extends Controller
       $page->enterprise_type = $request->enterprise_type;
       $page->save();
       return redirect('/feed');
+    }
+
+    // Follow page
+    public function followPage(Request $request){
+      $fp = new pages_following;
+      $fp->user_id = Auth::user()->id;
+      $fp->page_id = $request->page_id;
+      $fp->save();
+    }
+
+    // Like page
+    public function likePage(Request $request){
+      $fp = new page_like;
+      $fp->user_id = Auth::user()->id;
+      $fp->page_id = $request->page_id;
+      $fp->save();
     }
 }

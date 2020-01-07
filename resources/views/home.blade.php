@@ -33,12 +33,46 @@
       <path d="M0 0 C 50 100 80 100 100 0 Z" style="fill:#fff"></path>
 </svg>
 
-<!-- Categories section -->
-<section class="main-section main-container">
-  <div class="section-title">
-    <h1 class="section-title">Categories</h1>
-    <div class="heading-border" style=""></div>
+<!-- Search suggestions section -->
+<section id="suggestions" class="main-section main-container">
+    <h1 class="section-title">
+      Trouver votre travail ou stage ideal
+    </h1>
+  <div class="suggestions">
+    <h2>Suggestions de recherche</h2>
+    <span>Ventes</span>
+    <span>Ingénierie</span>
+    <span>Développement commercial</span>
+    <span>Finance</span>
+    <span>Services de la santé</span>
+    <span>Marketing</span>
+    <span>Technologies de l'information</span>
+    <span>Administration</span>
+    <span>Ressources humaines</span>
+    <span>Exploitation</span>
+  </div>
+</section>
+<svg class="fusion-waves-candy" fill="var(--main-color)" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" viewBox="0 54 1024 162" preserveAspectRatio="none"><path class="st3" d="M0 216.312h1024v-3.044c-50.8-17.1-108.7-30.7-172.7-37.9-178.6-19.8-220 36.8-404.9 21.3-206.6-17.2-228-126.5-434.5-141.6-3.9-.3-7.9-.5-11.9-.7v161.944z"></path></svg>
+
+<!-- Post your job offer -->
+<section id="job-offer" class="main-section main-container" style="background:var(--main-color)">
+  <div class="section-left">
+    <h1 class="section-title">Publiez votre offre d’emploi auprès de millions de personnes</h1>
+    <a href="">Publier une offre d'emploi</a>
+  </div>
+  <div class="section-right">
+
   </div>
 </section>
 
+<!-- Functionnalities wrapper section -->
+<section id="func-wrapper" class="main-section main-container">
+  <div class="section-left">
+    <h1 class="section-title" style="color:var(--main-color)">À qui s’adresse GETAJOB ?</h1>
+    <p>À toute personne cherchant à construire sa carrière professionnelle</p>
+  </div>
+  <div class="section-right">
+    
+  </div>
+</section>
 @endsection

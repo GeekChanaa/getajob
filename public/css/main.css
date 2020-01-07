@@ -6,7 +6,17 @@
   width:100%;
   padding:6em;
 }
-
+:root{
+  --main-color:#225dde;
+  --dark-gray:#666c77;
+}
+textarea:focus,button:focus,input:focus{
+  border:none;
+  outline:none;
+}
+a:hover{
+  text-decoration: none;
+}
 
 /* Navbar styles */
 #main-nav{
@@ -14,6 +24,13 @@
   height:70px;
   background: #fff;
   border-bottom:1px solid #f2f2f2;
+}
+#main-nav .navbar-brand{
+  display: inline-block;
+  line-height: 60px;
+}
+#main-nav .navbar-brand img{
+  height: 30px;
 }
 /* Hero styles */
 #hero{
@@ -112,26 +129,293 @@
 }
 
 
-/* Categories style */
+/* Suggestions section style */
 .main-section{
-  height:100vh;
+  padding:3rem auto;
 }
 .section-title{
-  text-align: center;
+  color:var(--dark-gray);
+  margin-bottom: 2rem;
 }
-.section-title>h1{
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #4a5161;
+.suggestions h2{
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #b7bcc7;
+  border-left: 4px solid #747d92;
+  padding: 0.3rem 0.6em;
+  margin-left: 1rem;
 }
-.section-title .heading-border{
+.suggestions span{
+  padding: 1.2em 2.2em;
   display: inline-block;
-  background: #4e73c3;
-  height: 6px;
+  margin: .5em 1em .5em 0;
+  border-radius: 2em;
+  background-color: white;
+  font-weight: 600;
+  background: white;
+  color: #9c9b9b;
+  font-size: 0.8rem;
+  cursor:pointer;
+  transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.suggestions span:hover{
+  color:var(--main-color);
+}
+
+/* Job offer section */
+#job-offer{
+  display: flex;
+  height: 65vh;
+}
+
+#job-offer *{
+  flex:1;
+}
+
+#job-offer h1{
+  color:#fff;
+}
+#job-offer a{
+  color: #fff;
+  font-weight: 600;
+  border: 2px solid #fff;
+  padding: 1em 2em;
+  margin-top: 1em;
+  display: inline-block;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+#job-offer a:hover{
+  text-decoration:none;
+  background:#fff;
+  color:var(--main-color);
+}
+#job-offer .section-right{
+    background-image: url('../job-offer.svg');
+    background-position: center 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#job-offer::before,#job-offer::after{
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
+}
+#job-offer::after{
+  bottom: -50px;
+  z-index: 10;
+  background: inherit;
+}
+/* Functionnalities wrapper section  */
+#func-wrapper{
+
+}
+#func-wrapper p{
+  font-size: 1.3rem;
+  color: var(--dark-gray);
 }
 
 
+/* ---------- News feed page design ---------- */
+.feed-wrapper{
+  display: flex;
+  flex-wrap:nowrap;
+}
+.left-side,.right-side{
+  width:350px;
+}
+.main-content{
+  flex:1;
+  position: relative;
+}
+.user-actions{
+  position: absolute;
+  top: 24px;
+  width: 100%;
+  background: #679dff;
+}
+.user-actions a{
+  background: none;
+  border: none;
+  margin: 0.6em .2em;
+  border-radius: 0;
+}
+.user-actions a svg{
+  width: 22px;
+  height: 21px;
+  fill: #fff;
+  display: inline-block;
+  margin: .3em 0;
+}
+.create-post{
+  position: relative;
+}
+.create-post textarea{
+  margin: 2rem 0 1rem 0;
+  padding: 4.5rem 1rem 2rem 2.5rem;
+  border: none;
+  box-shadow: 0 10px 10px -10px #eaeaea;
+  border-radius: 0.3rem;
+  resize:none;
+  width:100%;
+}
+.create-post button{
+  position: absolute;
+  bottom: 22px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: var(--main-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.3rem 1.5rem;
+  border-bottom: 3px solid var(--main-color);
+  cursor: pointer;
+}
+
+.post{
+  background: #fff;
+  padding:1.5rem;
+  box-shadow: 0 10px 10px -10px #eaeaea;
+  border-radius: 0.3rem;
+}
+.post .user-section{
+  display: flex;
+  background: #fff;
+}
+.post .user-avatar{
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border-radius: 50%;
+}
+.post .user-infos{
+  flex:1;
+}
+.post .user-infos span{
+  display: block;
+  margin: -0.2rem 0 0 0.7rem;
+}
+.post .user-infos span:first-child{
+  font-weight: 600;
+  font-size: 14px;
+}
+.post .user-infos span:nth-child(2){
+  color: #b7becc;
+  font-size: 13px;
+}
+.post .user-infos span:last-child{
+  font-family: Open Sans;
+  font-weight: 400;
+  color: var(--dark-gray);
+  font-size: 13px;
+}
+.post-content{
+  margin-top:1.2rem;
+}
+.post-content p{
+  font-family: Open Sans;
+  font-weight: 400;
+  color: #2d2d2d;
+}
+.post-actions{
+  background: #ffffff;
+  margin: 0 -1.5rem;
+  padding: 0.9rem 1.5rem;
+  border-top: 1px solid #f9f9f9;
+  border-bottom: 1px solid #f9f9f9;
+}
+.post-actions a{
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin-right: 1rem;
+}
+.post-actions a svg{
+  width: 15px;
+  height: 15px;
+  margin-right: 0.2rem;
+  fill: #7489ff;
+  position: relative;
+}
+.post-comment{
+  display: flex;
+  margin-top:1.5rem;
+}
+.post-comment input{
+  flex:1;
+  border: 1px solid #e8e8e8;
+  border-radius: 2rem;
+  margin-left: .5rem;
+  padding-left: 1rem;
+  font-size: 13px;
+}
+.comments{
+  padding:1rem 0;
+}
+.comment{
+  display: flex;
+  flex-wrap: wrap;
+}
+.comment .comment-content{
+  background: #fff;
+  flex:1;
+}
+.comment .user-avatar{
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  border-radius: 50%;
+}
+.comment .user-infos{
+  flex:1;
+  padding: .5rem 0 .5rem .5rem;
+  background: #f8fafc;
+  border-radius: 0 1rem 1rem 1rem;
+  margin-left: 1rem;
+}
+.comment .user-infos span{
+  display: block;
+  margin: -0.2rem 0 0 0.7rem;
+}
+.comment .user-infos span:first-child{
+  font-weight: 600;
+  font-size: 12px;
+}
+.comment .user-infos span:nth-child(2){
+  color: #b7becc;
+  font-size: 10px;
+}
+.comment .user-infos span:nth-child(3){
+  margin: 0.5rem;
+}
+.comment .user-infos a{
+  font-size: 12px;
+  margin-left: 0.7rem;
+  font-weight: bold;
+  color: #679cff;
+  display: inline-block;
+}
+.comment .user-infos span:last-child{
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #9fa6af;
+}
+.reply{
+  width:auto;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  display: flex;
+}
+.reply input{
+  flex:1;
+  border: 1px solid #e8e8e8;
+  border-radius: 2rem;
+  margin-left: .5rem;
+  padding-left: 1rem;
+  font-size: 13px;
+}
 
 
 /* Media Queries */

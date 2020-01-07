@@ -189,9 +189,8 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::get('/feed','mainController@feed');
   Route::post('/feed/add_post','postsController@add');
   Route::get('/feed/create_post','postsController@create');
-  Route::post('/ajax/addcomment','postsController@addcomment');
-  Route::post('/ajax/addpost','postsController@addpost');
-  Route::post('/ajax/addreply','postsController@addreply');
+  Route::get('/feed/post/{id}','postsController@show');
+
   Route::get('/feed/create_group','groupsController@create');
   Route::post('/feed/add_group','groupsController@add');
   Route::post('/feed/add_page','pagesController@add');
@@ -202,6 +201,41 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::get('/feed/create_seminar','seminarsController@create');
   Route::get('/feed/create_training','trainingsController@create');
   Route::get('/feed/create_event','eventsController@create');
+
+  // Feed ajax routes
+  Route::post('/ajax/addcomment','postsController@addcomment');
+  Route::post('/ajax/addpost','postsController@addpost');
+  Route::post('/ajax/addreply','postsController@addreply');
+  Route::post('/ajax/likepost','postsController@likepost');
+  Route::post('/ajax/reportpost','postsController@reportpost');
+  Route::post('/ajax/likecomment','postsController@likecomment');
+  Route::post('/ajax/reportcomment','postsController@reportcomment');
+  Route::post('/ajax/likereply','postsController@likereply');
+  Route::post('/ajax/reportreply','postsController@reportreply');
+  Route::post('/ajax/likeevent','eventsController@likeevent');
+  Route::post('/ajax/interestedInEvent','eventsController@interestedInEvent');
+  Route::post('/ajax/likePage','pagesController@likePage');
+  Route::post('/ajax/followPage','pagesController@followPage');
+
+  /****
+
+  User interface Routes
+
+  *****/
+  Route::get('/myprofile','profileController@user_interface');
+  Route::post('/ajax/profile/newcertification','certificationsController@addAjax');
+  Route::post('/ajax/profile/newlanguage','languagesController@addAjax');
+  Route::post('/ajax/profile/newproject','projectsController@addAjax');
+  Route::post('/ajax/profile/newcourse','coursesController@addAjax');
+  Route::post('/ajax/profile/newpatent','patentsController@addAjax');
+  Route::post('/ajax/profile/newvolunteerexperience','volunteerExperiencesController@addAjax');
+
+  Route::post('/ajax/profile/deletecertification','certificationsController@deleteAjax');
+  Route::post('/ajax/profile/deletelanguage','languagesController@deleteAjax');
+  Route::post('/ajax/profile/deleteproject','projectsController@deleteAjax');
+  Route::post('/ajax/profile/deletecourse','coursesController@deleteAjax');
+  Route::post('/ajax/profile/deletepatent','patentsController@deleteAjax');
+  Route::post('/ajax/profile/deletevolunteerexperience','volunteerExperiencesController@deleteAjax');
 });
 
 //Posts Views

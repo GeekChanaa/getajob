@@ -245,6 +245,10 @@
           </svg>
           Partager
         </a>
+        <div class="post-stats">
+          <span>245 J'aimes</span>
+          <span>60 Commentaires</span>
+        </div>
       </div>
       <div class="post-comment">
         <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});width:40px;height:40px"></div>
@@ -258,28 +262,66 @@
               <span>Adnane AMEZIANE</span>
               <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
               <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae cupiditate quidem libero enim. Consectetur, laudantium nam recusandae nemo quidem, vitae!</span>
+              <a href="">Aimer</a>
+              <span>
+                7
+                <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
+                <g>
+                  <g id="thumb-up">
+                    <path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
+                    c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
+                    c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
+                  </g>
+                </g>
+                </svg>
+              </span>
               <a href="">Répondre</a>
-              <span>7 réponses </span>
+              <span>7 Réponses </span>
             </div>
-            <div class="reply">
+            <div class="replies">
+              <div class="reply">
+                <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});height:30px;width:30px"></div>
+                <div class="reply-content">
+                  <div class="user-infos">
+                    <span>Adnane AMEZIANE</span>
+                    <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae cupiditate quidem libero enim. Consectetur, laudantium nam recusandae nemo quidem, vitae!</span>
+                    <a href="">Aimer</a>
+                    <span>
+                      2
+                      <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
+                      <g>
+                        <g id="thumb-up">
+                          <path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
+                          c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
+                          c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
+                        </g>
+                      </g>
+                      </svg>
+                    </span>
+                    <a href="">Répondre</a>
+                  </div>
+              </div>
+            </div>
+            <div class="post-reply">
               <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
               <input type="text" name="reply" placeholder="Ajouter un une réponse..">
             </div>
+
           </div>
         </div>
       </div>
     </div>
     <div class="">
-<<<<<<< HEAD
       @foreach($list_posts as $post)
       <div class="">
         <span>{{$post->user->name}}</span>
         <span>{{$post->content}}</span>
-=======
       <span>{{$post->user->name}}</span>
       <span>{{$post->content}}</span>
       <span>{{$post->comments_count}} comments</span>
->>>>>>> d8a8ac4d427b6a1d84ba8ca4035be461d9089497
         @foreach($post->comments as $comment)
         <div class="">
           <span>{{$comment->user->name}}</span>
@@ -302,48 +344,48 @@
         <textarea id="content-{{$post->id}}"></textarea>
         <button type="button" class="comment" data-id="{{$post->id}}">comment</button>
     </div>
-    <div class="">
-      {{$post->likes_count}} likes<button class="like-post" data-post="{{$post->id}}">like post</button>
-      <button class="report-post" data-post="{{$post->id}}">report post</button>
-    </div>
-  @endforeach
-
-
+      <div class="">
+        {{$post->likes_count}} likes<button class="like-post" data-post="{{$post->id}}">like post</button>
+        <button class="report-post" data-post="{{$post->id}}">report post</button>
+      </div>
+      @endforeach
+      </div>
     </div>
   </div>
   <div class="right-side">
-
-<div class="">
- <h3>Pages</h3>
- @foreach($list_pages as $page)
-  <div class="">
-    <span>Name : {{$page->name}}</span>
-    <button class="like-page" data-pageid="{{$page->id}}">like page</button>
-    <button class="follow-page" data-pageid="{{$page->id}}">follow page</button>
-
-  </div>
- @endforeach
-</div>
-
-<div class="">
-  <h3>Groups</h3>
-  @foreach($list_groups as $group)
-  <div class="">
-    <span>Name : {{$group->name}}</span>
-  </div>
-  @endforeach
-</div>
-
-<div class="">
-  <h3>Events</h3>
-  @foreach($list_events as $event)
     <div class="">
-      <span>Name : {{$event->name}} </span>
-      <button class="like-event" data-eventid="{{$event->id}}">like event</button>
-      <button class="interestedin-event" data-eventid="{{$event->id}}">interested in event</button>
+     <h3>Pages</h3>
+     @foreach($list_pages as $page)
+      <div class="">
+        <span>Name : {{$page->name}}</span>
+        <button class="like-page" data-pageid="{{$page->id}}">like page</button>
+        <button class="follow-page" data-pageid="{{$page->id}}">follow page</button>
+
+      </div>
+     @endforeach
     </div>
-  @endforeach
-</div>
+
+    <div class="">
+      <h3>Groups</h3>
+      @foreach($list_groups as $group)
+      <div class="">
+        <span>Name : {{$group->name}}</span>
+      </div>
+      @endforeach
+    </div>
+
+    <div class="">
+      <h3>Events</h3>
+      @foreach($list_events as $event)
+        <div class="">
+          <span>Name : {{$event->name}} </span>
+          <button class="like-event" data-eventid="{{$event->id}}">like event</button>
+          <button class="interestedin-event" data-eventid="{{$event->id}}">interested in event</button>
+        </div>
+      @endforeach
+    </div>
+  </div>
+
 
 
 <script type="text/javascript">

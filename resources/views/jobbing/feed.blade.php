@@ -200,10 +200,12 @@
       </a>
     </div>
     <div class="post">
+      @foreach($list_posts as $post)
+      <div class="">
       <div class="user-section">
         <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
         <div class="user-infos">
-          <span>Adnane AMEZIANE</span>
+          <span>{{$post->user->name}}</span>
           <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
           <span>4
             h</span>
@@ -211,7 +213,7 @@
       </div>
       <div class="post-content">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam fugit, cumque perspiciatis tempore consequuntur ex expedita aliquid, quisquam quis labore id incidunt eius voluptatem ipsa deleniti inventore temporibus voluptate dolores repudiandae! Quia sint distinctio est vitae, itaque nesciunt rem ratione temporibus culpa. Quod, similique beatae molestiae aliquid numquam iusto quaerat.
+          {{$post->content}}
         </p>
       </div>
       <div class="post-actions">
@@ -246,25 +248,27 @@
           Partager
         </a>
         <div class="post-stats">
-          <span>245 J'aimes</span>
-          <span>60 Commentaires</span>
+          <span>{{$post->likes_count}} J'aimes</span>
+          <span>{{$post->comments_count}} Commentaires</span>
         </div>
       </div>
       <div class="post-comment">
         <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});width:40px;height:40px"></div>
         <input type="text" name="comment" placeholder="Ajouter un commentaire..">
       </div>
+      @foreach($post->comments as $comment)
       <div class="comments">
         <div class="comment">
           <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
+
           <div class="comment-content">
             <div class="user-infos">
-              <span>Adnane AMEZIANE</span>
+              <span>{{$comment->user->name}}</span>
               <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
-              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae cupiditate quidem libero enim. Consectetur, laudantium nam recusandae nemo quidem, vitae!</span>
+              <span>{{$comment->content}}</span>
               <a href="">Aimer</a>
               <span>
-                7
+                @if($comment->likesCount){{$comment->likesCount->total}}@else 0 @endif
                 <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
                 <g>
@@ -277,19 +281,20 @@
                 </svg>
               </span>
               <a href="">Répondre</a>
-              <span>7 Réponses </span>
+              <span>@if($comment->repliesCount){{$comment->repliesCount->total}}@else 0 @endif  Réponses </span>
             </div>
             <div class="replies">
+              @foreach($comment->replies as $reply)
               <div class="reply">
                 <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});height:30px;width:30px"></div>
                 <div class="reply-content">
                   <div class="user-infos">
                     <span>Adnane AMEZIANE</span>
                     <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae cupiditate quidem libero enim. Consectetur, laudantium nam recusandae nemo quidem, vitae!</span>
+                    <span>{{$reply->content}}</span>
                     <a href="">Aimer</a>
                     <span>
-                      2
+                      @if($reply->likesCount){{$reply->likesCount->total}}@else 0 @endif
                       <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
                       <g>
@@ -305,6 +310,7 @@
                   </div>
               </div>
             </div>
+            @endforeach
             <div class="post-reply">
               <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
               <input type="text" name="reply" placeholder="Ajouter un une réponse..">
@@ -312,8 +318,12 @@
 
           </div>
         </div>
+
       </div>
     </div>
+    @endforeach
+    </div>
+    @endforeach
     <div class="">
       @foreach($list_posts as $post)
       <div class="">

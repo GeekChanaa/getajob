@@ -19,6 +19,7 @@ class CreateTrainingInterestsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('training_id');
             $table->foreign('training_id')->references('id')->on('trainings')->onDelete('cascade');
+            $table->unique(['user_id','training_id']);
 
             $table->timestamps();
         });

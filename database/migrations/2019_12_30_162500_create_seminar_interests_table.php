@@ -19,6 +19,7 @@ class CreateSeminarInterestsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('seminar_id');
             $table->foreign('seminar_id')->references('id')->on('seminars')->onDelete('cascade');
+            $table->unique(['user_id','seminar_id']);
             $table->timestamps();
         });
     }

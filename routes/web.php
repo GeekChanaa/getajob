@@ -178,6 +178,9 @@ Route::post('/Dashboard/events/update','dashboard\eventsController@updat');
 Route::get('/Dashboard/events/show/{id}','dashboard\eventsController@show');
 
 
+
+
+
 /***********
 
 MAIN
@@ -216,6 +219,9 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::post('/ajax/interestedInEvent','eventsController@interestedInEvent');
   Route::post('/ajax/likePage','pagesController@likePage');
   Route::post('/ajax/followPage','pagesController@followPage');
+  Route::post('/ajax/interestedInSeminar','seminarsController@interestedIn');
+  Route::post('/ajax/interestedInTraining','trainingsController@interestedIn');
+
 
   /****
 
@@ -238,7 +244,9 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::post('/ajax/profile/deletevolunteerexperience','volunteerExperiencesController@deleteAjax');
 });
 
-//Posts Views
+// Seminars
+Route::get('/seminars','seminarsController@seminars');
+Route::get('/trainings','trainingsController@trainings');
 
 
 Auth::routes();

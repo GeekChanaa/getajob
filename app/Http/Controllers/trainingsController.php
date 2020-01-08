@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\training;
+use App\training_interest;
+use Response;
+use auth;
 
 class trainingsController extends Controller
 {
@@ -25,5 +28,22 @@ class trainingsController extends Controller
     $training->school = $request->school;
     $training->save();
     return redirect('/feed');
+  }
+
+  // Interested in training
+  public function interestedIn(Request $request){
+    $II = new training_interest;
+    $II->training_id = $request->id;
+    $II->user_id = Auth::user()->id;
+    $II->save();
+    return Response::json(array('success'=>true,'training'=>$II));
+  }
+
+  // Trainings
+  public function trainings(){
+    $data=[
+      'list_trainings' => training::all(),
+    ];
+    return view('jobbing.trainings.trainings')->with($data);
   }
 }

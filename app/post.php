@@ -18,6 +18,8 @@ class post extends Model
       return $this->belongsTo('App\User');
     }
 
+    
+
     //Number of likes
     public function likes(){
       return $this->hasMany('App\post_like');
@@ -26,7 +28,7 @@ class post extends Model
     // true
     public function like(){
       return true;
-      
+
     }
 
 

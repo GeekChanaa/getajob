@@ -16,11 +16,11 @@
 </div>
 <div class="">
   <span>begin time</span>
-  <input type="datetime-local" name="begin">
+  <input type="date" name="begin">
 </div>
 <div class="">
   <span>end time</span>
-  <input type="datetime-local" name="end">
+  <input type="date" name="end">
 </div>
 <div class="">
   <span>description</span>

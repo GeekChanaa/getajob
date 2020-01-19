@@ -199,172 +199,142 @@
         </svg>
       </a>
     </div>
-    <div class="post">
+    <div class="posts">
       @foreach($list_posts as $post)
-      <div class="">
-      <div class="user-section">
-        <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
-        <div class="user-infos">
-          <span>{{$post->user->name}}</span>
-          <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
-          <span>4
-            h</span>
-        </div>
-      </div>
-      <div class="post-content">
-        <p>
-          {{$post->content}}
-        </p>
-      </div>
-      <div class="post-actions">
-        <a href="">
-          <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          	 width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
-          	<g>
-          		<g id="thumb-up">
-          			<path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
-          				c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
-          				c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
-          		</g>
-          	</g>
-          </svg>
-          J'aime
-        </a>
-        <a href="">
-          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          	 width="510px" height="510px" viewBox="0 0 510 510" style="enable-background:new 0 0 510 510;" xml:space="preserve">
-          	<g>
-          		<g id="messenger">
-          			<path d="M459,0H51C22.95,0,0,22.95,0,51v459l102-102h357c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z"/>
-          		</g>
-          	</g>
-          </svg>
-          Commenter
-        </a>
-        <a href="">
-          <svg viewBox="0 -22 512 511" xmlns="http://www.w3.org/2000/svg" style="bottom:2px">
-            <path d="m512 233.820312-212.777344-233.320312v139.203125h-45.238281c-140.273437 0-253.984375 113.710937-253.984375 253.984375v73.769531l20.09375-22.019531c68.316406-74.851562 164.980469-117.5 266.324219-117.5h12.804687v139.203125zm0 0"/>
-          </svg>
-          Partager
-        </a>
-        <div class="post-stats">
-          <span>{{$post->likes_count}} J'aimes</span>
-          <span>{{$post->comments_count}} Commentaires</span>
-        </div>
-      </div>
-      <div class="post-comment">
-        <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});width:40px;height:40px"></div>
-        <input type="text" name="comment" placeholder="Ajouter un commentaire..">
-      </div>
-      @foreach($post->comments as $comment)
-      <div class="comments">
-        <div class="comment">
+      <div class="post">
+        <div class="user-section">
           <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
-
-          <div class="comment-content">
-            <div class="user-infos">
-              <span>{{$comment->user->name}}</span>
-              <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
-              <span>{{$comment->content}}</span>
-              <a href="">Aimer</a>
-              <span>
-                @if($comment->likesCount){{$comment->likesCount->total}}@else 0 @endif
-                <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
-                <g>
-                  <g id="thumb-up">
-                    <path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
-                    c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
-                    c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
-                  </g>
-                </g>
-                </svg>
-              </span>
-              <a href="">Répondre</a>
-              <span>@if($comment->repliesCount){{$comment->repliesCount->total}}@else 0 @endif  Réponses </span>
-            </div>
-            <div class="replies">
-              @foreach($comment->replies as $reply)
-              <div class="reply">
-                <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});height:30px;width:30px"></div>
-                <div class="reply-content">
-                  <div class="user-infos">
-                    <span>Adnane AMEZIANE</span>
-                    <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
-                    <span>{{$reply->content}}</span>
-                    <a href="">Aimer</a>
-                    <span>
-                      @if($reply->likesCount){{$reply->likesCount->total}}@else 0 @endif
-                      <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
-                      <g>
-                        <g id="thumb-up">
-                          <path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
-                          c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
-                          c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
-                        </g>
-                      </g>
-                      </svg>
-                    </span>
-                    <a href="">Répondre</a>
-                  </div>
-              </div>
-            </div>
-            @endforeach
-            <div class="post-reply">
-              <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
-              <input type="text" name="reply" placeholder="Ajouter un une réponse..">
-            </div>
-
+          <div class="user-infos">
+            <span>{{$post->user->name}}</span>
+            <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
+            <span>4
+              h</span>
           </div>
         </div>
-
-      </div>
-    </div>
-    @endforeach
-    </div>
-    @endforeach
-    <div class="">
-      @foreach($list_posts as $post)
-      <div class="">
-        <span>{{$post->user->name}}</span>
-        <span>{{$post->content}}</span>
-      <span>{{$post->user->name}}</span>
-      <span>{{$post->content}}</span>
-      <span>{{$post->comments_count}} comments</span>
+        <div class="post-content">
+          <p>
+            {{$post->content}}
+          </p>
+        </div>
+        <div class="post-actions">
+          <a href="like">
+            <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
+            	<g>
+            		<g id="thumb-up">
+            			<path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
+            				c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
+            				c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
+            		</g>
+            	</g>
+            </svg>
+            J'aime
+          </a>
+          <a href="comment">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 width="510px" height="510px" viewBox="0 0 510 510" style="enable-background:new 0 0 510 510;" xml:space="preserve">
+            	<g>
+            		<g id="messenger">
+            			<path d="M459,0H51C22.95,0,0,22.95,0,51v459l102-102h357c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z"/>
+            		</g>
+            	</g>
+            </svg>
+            Commenter
+          </a>
+          <a href="share">
+            <svg viewBox="0 -22 512 511" xmlns="http://www.w3.org/2000/svg" style="bottom:2px">
+              <path d="m512 233.820312-212.777344-233.320312v139.203125h-45.238281c-140.273437 0-253.984375 113.710937-253.984375 253.984375v73.769531l20.09375-22.019531c68.316406-74.851562 164.980469-117.5 266.324219-117.5h12.804687v139.203125zm0 0"/>
+            </svg>
+            Partager
+          </a>
+          <div class="post-stats">
+            <span>{{$post->likes_count}} J'aimes</span>
+            <span>{{$post->comments_count}} Commentaires</span>
+          </div>
+        </div>
+        <div class="post-comment">
+          <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});width:40px;height:40px"></div>
+          <input type="text" name="comment" placeholder="Ajouter un commentaire..">
+        </div>
         @foreach($post->comments as $comment)
-        <div class="">
-          <span>{{$comment->user->name}}</span>
-          <span>{{$comment->content}}</span>
-          @foreach($comment->replies as $reply)
-          <span>{{$reply->user->name}}</span>
-          <span>{{$reply->content}}</span>
-          <button class="like-reply" data-reply="{{$reply->id}}">like reply</button>
-          <button class="report-reply" data-reply="{{$reply->id}}">report reply</button>
+        <div class="comments">
+          <div class="comment">
+            <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
 
-          @endforeach
-          <textarea id="reply-content-{{$comment->id}}" rows="8" cols="80"></textarea>
-          <button type="button" class="reply" data-id="{{$comment->id}}">reply</button>
-          <button class="like-comment" data-comment="{{$comment->id}}">like comment</button>
-          <button class="report-comment" data-comment="{{$comment->id}}">report comment</button>
+            <div class="comment-content">
+              <div class="user-infos">
+                <span>{{$comment->user->name}}</span>
+                <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
+                <span>{{$comment->content}}</span>
+                <a href="">Aimer</a>
+                <span>
+                  @if($comment->likesCount){{$comment->likesCount->total}}@else 0 @endif
+                  <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
+                  <g>
+                    <g id="thumb-up">
+                      <path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
+                      c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
+                      c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
+                    </g>
+                  </g>
+                  </svg>
+                </span>
+                <a href="">Répondre</a>
+                <span>@if($comment->repliesCount){{$comment->repliesCount->total}}@else 0 @endif  Réponses </span>
+              </div>
+              <div class="replies">
+                @foreach($comment->replies as $reply)
+                <div class="reply">
+                  <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});height:30px;width:30px"></div>
+                  <div class="reply-content">
+                    <div class="user-infos">
+                      <span>Adnane AMEZIANE</span>
+                      <span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span>
+                      <span>{{$reply->content}}</span>
+                      <a href="">Aimer</a>
+                      <span>
+                        @if($reply->likesCount){{$reply->likesCount->total}}@else 0 @endif
+                        <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
+                        <g>
+                          <g id="thumb-up">
+                            <path d="M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65
+                            c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5
+                            c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z"/>
+                          </g>
+                        </g>
+                        </svg>
+                      </span>
+                      <a href="">Répondre</a>
+                    </div>
+                </div>
+              </div>
+              @endforeach
+              <div class="post-reply">
+                <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});height:35px;width:35px"></div>
+                <input type="text" name="reply" placeholder="Ajouter un une réponse..">
+              </div>
+
+            </div>
+          </div>
 
         </div>
-
+        </div>
         @endforeach
-        <textarea id="content-{{$post->id}}"></textarea>
-        <button type="button" class="comment" data-id="{{$post->id}}">comment</button>
-    </div>
-      <div class="">
-        {{$post->likes_count}} likes<button class="like-post" data-post="{{$post->id}}">like post</button>
-        <button class="report-post" data-post="{{$post->id}}">report post</button>
       </div>
       @endforeach
-      </div>
     </div>
   </div>
   <div class="right-side">
-    <div class="">
-     <h3>Pages</h3>
+    <div class="section">
+      <div class="section-header">
+        <h3>Pages</h3>
+        <div class="line"></div>
+        <svg height="512pt" viewBox="-21 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+          <path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"/><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"/>
+        </svg>
+      </div>
      @foreach($list_pages as $page)
       <div class="">
         <span>Name : {{$page->name}}</span>
@@ -375,8 +345,13 @@
      @endforeach
     </div>
 
-    <div class="">
-      <h3>Groups</h3>
+    <div class="section">
+      <div class="section-header">
+        <h3>Groups</h3>
+        <div class="line"></div>
+        <svg height="512pt" viewBox="-25 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m101.84375 312.390625v-97.808594c0-7.058593 1.011719-13.941406 2.90625-20.511719h-65.953125c-10.695313 0-20.394531 4.351563-27.417969 11.375-7.023437 7.023438-11.378906 16.726563-11.378906 27.417969v77.828125c0 9.472656 3.457031 18.195313 9.183594 24.980469 2.976562 3.53125 6.578125 6.523437 10.632812 8.8125v113.121094c0 8.269531 6.703125 14.972656 14.96875 14.972656h91.960938v-104.574219c-15.722656-14.195312-24.902344-34.417968-24.902344-55.613281zm0 0"/><path d="m80.847656 176.363281c32.339844 0 58.648438-26.308593 58.648438-58.648437s-26.308594-58.648438-58.648438-58.648438-58.648437 26.308594-58.648437 58.648438 26.308593 58.648437 58.648437 58.648437zm0 0"/><path d="m282.441406 169.667969h-105.746094c-12.375 0-23.605468 5.042969-31.738281 13.171875-8.132812 8.132812-13.171875 19.363281-13.171875 31.742187v97.808594c0 10.96875 4 21.070313 10.621094 28.917969 3.925781 4.652344 8.785156 8.5 14.28125 11.25v144.46875c0 8.269531 6.703125 14.972656 14.972656 14.972656h115.820313c8.269531 0 14.972656-6.703125 14.972656-14.972656v-144.46875c5.496094-2.75 10.355469-6.597656 14.277344-11.25 6.625-7.847656 10.625-17.945313 10.625-28.917969v-97.808594c0-12.378906-5.039063-23.609375-13.171875-31.738281-8.132813-8.132812-19.363282-13.175781-31.742188-13.175781zm0 0"/><path d="m229.546875 139.726562c38.523437 0 69.863281-31.339843 69.863281-69.863281 0-38.523437-31.339844-69.863281-69.863281-69.863281s-69.863281 31.339844-69.863281 69.863281c0 38.523438 31.339844 69.863281 69.863281 69.863281zm0 0"/><path d="m449.769531 205.445312c-7.023437-7.023437-16.722656-11.375-27.417969-11.375h-67.960937c1.890625 6.570313 2.90625 13.453126 2.90625 20.511719v97.808594c0 21.191406-9.179687 41.417969-24.902344 55.613281v104.464844c.589844.070312 1.195313.109375 1.808594.109375h92.15625c8.269531 0 14.972656-6.703125 14.972656-14.972656v-113.121094c4.050781-2.285156 7.652344-5.28125 10.632813-8.8125 5.726562-6.785156 9.183594-15.507813 9.183594-24.980469v-77.828125c0-10.691406-4.355469-20.394531-11.378907-27.417969zm0 0"/><path d="m380.261719 176.363281c32.339843 0 58.648437-26.308593 58.648437-58.648437s-26.308594-58.648438-58.648437-58.648438c-32.335938 0-58.648438 26.308594-58.648438 58.648438s26.3125 58.648437 58.648438 58.648437zm0 0"/>
+        </svg>
+      </div>
       @foreach($list_groups as $group)
       <div class="">
         <span>Name : {{$group->name}}</span>
@@ -384,8 +359,29 @@
       @endforeach
     </div>
 
-    <div class="">
-      <h3>Events</h3>
+    <div class="section">
+      <div class="section-header">
+        <h3>Events</h3>
+        <div class="line"></div>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+        <g>
+          <g>
+            <path d="M460.8,51.2h-25.6V25.6c0-15.36-10.24-25.6-25.6-25.6C394.24,0,384,10.24,384,25.6v25.6H128V25.6
+            C128,10.24,117.76,0,102.4,0C87.04,0,76.8,10.24,76.8,25.6v25.6H25.6C12.8,51.2,0,61.44,0,76.8v358.4c0,15.36,12.8,25.6,25.6,25.6
+            h156.16c-17.92-30.72-28.16-66.56-28.16-102.4c0-112.64,92.16-204.8,204.8-204.8c48.64,0,92.16,17.92,128,46.08V76.8
+            C486.4,64,473.6,51.2,460.8,51.2z"/>
+          </g>
+        </g>
+        <g>
+          <g>
+            <path d="M358.4,204.8c-84.48,0-153.6,69.12-153.6,153.6S273.92,512,358.4,512S512,442.88,512,358.4S442.88,204.8,358.4,204.8z
+            M409.6,384h-51.2c-15.36,0-25.6-10.24-25.6-25.6v-76.8c0-15.36,10.24-25.6,25.6-25.6c15.36,0,25.6,10.24,25.6,25.6v51.2h25.6
+            c15.36,0,25.6,10.24,25.6,25.6C435.2,373.76,424.96,384,409.6,384z"/>
+          </g>
+        </g>
+        </svg>
+      </div>
       @foreach($list_events as $event)
         <div class="">
           <span>Name : {{$event->name}} </span>
@@ -501,7 +497,7 @@ $(document).on("click", ".like-event", function(e){
   });
 
 // Liking post
-$(document).on("click", ".like-post", function(e){
+$(document).on("click", ".post .post-actions .like", function(e){
   var post = $(this).data('post');
   e.preventDefault();
   $.ajaxSetup({
@@ -521,7 +517,6 @@ $(document).on("click", ".like-post", function(e){
 
      },
      error: function(jqXHR, textStatus, errorThrown){
-       alert('error');
    }});
   });
 
@@ -676,7 +671,6 @@ $(document).on("click", ".post", function(e){
 
      },
      error: function(jqXHR, textStatus, errorThrown){
-       alert('error');
    }});
   });
 

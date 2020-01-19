@@ -8,38 +8,44 @@
 @section('content')
 
 
-<form class="" action="{{url('/feed/add_training')}}" method="post">
+<form class="form" action="{{url('/feed/add_training')}}" method="post">
 @csrf
-<div class="">
-  <span>title</span>
-  <input type="text" name="title">
+<div class="left-side">
 </div>
-<div class="">
-  <span>diplomat</span>
-  <input type="text" name="diplomat">
-</div>
-<div class="">
-  <span>description</span>
-  <input type="text" name="description">
-</div>
-<div class="">
-  <span>conditions</span>
-  <input type="text" name="conditions">
-</div>
-<div class="">
-  <span>phone</span>
-  <input type="text" name="phone">
-</div>
-<div class="">
-  <span>email</span>
-  <input type="text" name="email">
-</div>
-<div class="">
-  <span>school</span>
-  <input type="text" name="school">
-</div>
-<div class="">
-  <button type="submit"> Create training </button>
+<div class="right-side">
+  <h1>Create a training</h1>
+  <div class="line"></div>
+  <div class="form-field">
+    <label>title</label>
+    <input type="text" name="title">
+  </div>
+  <div class="form-field">
+    <label>diplomat</label>
+    <input type="text" name="diplomat">
+  </div>
+  <div class="form-field">
+    <label>description</label>
+    <input type="text" name="description">
+  </div>
+  <div class="form-field">
+    <label>conditions</label>
+    <input type="text" name="conditions">
+  </div>
+  <div class="form-field">
+    <label>phone</label>
+    <input type="text" name="phone">
+  </div>
+  <div class="form-field">
+    <label>email</label>
+    <input type="text" name="email">
+  </div>
+  <div class="form-field">
+    <label>school</label>
+    <input type="text" name="school">
+  </div>
+  <div class="form-button">
+    <button type="submit">Create</button>
+  </div>
 </div>
 </form>
 

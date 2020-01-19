@@ -8,27 +8,33 @@
 @section('content')
 
 
-<form class="" action="{{url('/feed/add_seminar')}}" method="post">
+<form class="form" action="{{url('/feed/add_seminar')}}" method="post">
 @csrf
-<div class="">
-  <span>title</span>
-  <input type="text" name="title">
+<div class="left-side">
 </div>
-<div class="">
-  <span>begin time</span>
-  <input type="date" name="begin">
-</div>
-<div class="">
-  <span>end time</span>
-  <input type="date" name="end">
-</div>
-<div class="">
-  <span>description</span>
-  <input type="text" name="description">
-</div>
+<div class="right-side">
+  <h1>Create a seminar</h1>
+  <div class="line"></div>
+  <div class="form-field">
+    <label>title</label>
+    <input type="text" name="title">
+  </div>
+  <div class="form-field">
+    <label>begin time</label>
+    <input type="date" name="begin">
+  </div>
+  <div class="form-field">
+    <label>end time</label>
+    <input type="date" name="end">
+  </div>
+  <div class="form-field">
+    <label>description</label>
+    <input type="text" name="description">
+  </div>
 
-<div class="">
-  <button type="submit"> Create seminar </button>
+  <div class="form-button">
+    <button type="submit">Create</button>
+  </div>
 </div>
 </form>
 

@@ -18,7 +18,7 @@ class CreateJobFunctionsTable extends Migration
             $table->unsignedInteger('job_id');
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->unsignedInteger('function_id');
-            $table->foreign('function_id')->references('id')->on('functions')->onDelete('cascade');
+            $table->foreign('function_id')->references('id')->on('jfunctions')->onDelete('cascade');
             $table->timestamps();
         });
     }

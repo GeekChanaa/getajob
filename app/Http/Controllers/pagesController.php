@@ -16,6 +16,23 @@ class pagesController extends Controller
       return view('jobbing.pages.create');
     }
 
+    // page
+    public function page($id){
+      $page = page::where('id','=',$id)->first();
+      $data=[
+        'page' => $page,
+      ];
+      return view('jobbing.pages.page')->with($data);
+    }
+
+    //pages
+    public function pages(){
+      $data=[
+        'list_pages' => page::all(),
+      ];
+      return view('jobbing.pages.pages')->with($data);
+    }
+
     // Add page
     public function add(Request $request){
       $page= new page;

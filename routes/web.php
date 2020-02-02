@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /******
 
@@ -189,6 +186,14 @@ ROUTES
 
 ***********/
 Route::group(['middleware' => ['logged_in']], function () {
+  Route::get('/groups','groupsController@groups');
+  Route::get('/groups/group/{id}','groupsController@group');
+  Route::get('/seminars','seminarsController@seminars');
+  Route::get('/trainings','trainingsController@trainings');
+  Route::get('/pages','pagesController@pages');
+  Route::get('/pages/page/{id}','pagesController@page');
+  Route::get('/events','eventsController@events');
+
   Route::get('/feed','mainController@feed');
   Route::post('/feed/add_post','postsController@add');
   Route::get('/feed/create_post','postsController@create');
@@ -244,11 +249,9 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::post('/ajax/profile/deletevolunteerexperience','volunteerExperiencesController@deleteAjax');
 });
 
-// Seminars
-Route::get('/seminars','seminarsController@seminars');
-Route::get('/trainings','trainingsController@trainings');
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

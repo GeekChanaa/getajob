@@ -39,7 +39,8 @@ class postsController extends Controller
       $post->content = $request->content;
       $post->user_id = Auth::user()->id;
       $post->save();
-      return Response::json(array('success'=>true,'post'=>$post));
+      $postd = post::where('id','=',$post->id)->with('user')->first();
+      return Response::json(array('success'=>true,'post'=>$postd));
     }
 
     //Comment on a post
@@ -49,6 +50,7 @@ class postsController extends Controller
       $comment->user_id = Auth::user()->id;
       $comment->post_id = $request->id;
       $comment->save();
+      $comment = comment::where('id','=',$comment->id)->with('user')->first();
       return Response::json(array('success'=>true,'comment'=>$comment));
     }
 

@@ -20,6 +20,14 @@ class eventsController extends Controller
     return view('jobbing.events.create')->with($data);
   }
 
+  //events
+  public function events(){
+    $data=[
+      'list_events' => event::all(),
+    ];
+    return view('jobbing.events.events')->with($data);
+  }
+
   //add training
   public function add(Request $request){
     $event = new event;

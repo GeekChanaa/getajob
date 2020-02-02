@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 
 
@@ -9,7 +9,7 @@
   <div class="main-content">
     <div class="create-post">
         <textarea id="post-content" rows="8" cols="80" placeholder="Type what you're feeling.."></textarea>
-        <button class="">Post</button>
+        <button class="postadd">Post</button>
     </div>
     <div class="user-actions">
       <a class="btn" href="{{url('/feed/create_page')}}">
@@ -217,8 +217,8 @@
           </p>
         </div>
         <div class="post-actions">
-          <a href="like">
-            <svg version="1.1" id="Capa_1" style="bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          <a class="post-like" href="#" data-post="{{$post->id}}">
+            <svg  version="1.1" id="Capa_1" style="fill: grey ;bottom:2px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             	 width="561px" height="561px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
             	<g>
             		<g id="thumb-up">
@@ -254,10 +254,10 @@
         </div>
         <div class="post-comment">
           <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}});width:40px;height:40px"></div>
-          <input type="text" name="comment" placeholder="Ajouter un commentaire..">
+          <input class="add-post-comment" id="content-{{$post->id}}" data-postid="{{$post->id}}" type="text" name="comment" placeholder="Ajouter un commentaire..">
         </div>
         @foreach($post->comments as $comment)
-        <div class="comments">
+        <div class="comments comments-{{$post->id}}">
           <div class="comment">
             <div class="user-avatar" style="background-image:url({{asset('avatar.jpg')}})"></div>
 
@@ -391,7 +391,7 @@
       @endforeach
     </div>
   </div>
-
+</div>
 
 
 <script type="text/javascript">
@@ -497,7 +497,8 @@ $(document).on("click", ".like-event", function(e){
   });
 
 // Liking post
-$(document).on("click", ".post .post-actions .like", function(e){
+$(document).on("click", ".post-like", function(e){
+  var thiss = $(this);
   var post = $(this).data('post');
   e.preventDefault();
   $.ajaxSetup({
@@ -513,7 +514,7 @@ $(document).on("click", ".post .post-actions .like", function(e){
        post_id : post,
      },
      success: function(result){
-       alert("success");
+       thiss.children("svg").css("fill","blue");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -652,7 +653,7 @@ $(document).on("click", ".like-reply", function(e){
 
 
 // Adding Posts by ajax
-$(document).on("click", ".post", function(e){
+$(document).on("click", ".postadd", function(e){
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -667,7 +668,8 @@ $(document).on("click", ".post", function(e){
        content : $('#post-content').val(),
      },
      success: function(result){
-       alert(result.post.content);
+       console.log(result);
+       $(".posts").prepend("<div class='post'> <div class='user-section'><div class='user-avatar' style='background-image:url({{asset('avatar.jpg')}})'></div><div class='user-infos'><span>"+result.post.user.name+"</span><span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span><span>4h</span></div></div><div class='post-content'><p>"+result.post.content+"</p></div><div class='post-actions'><a class='post-like' href='#' data-post='"+result.id+"'><svg  version='1.1' id='Capa_1' style='fill: grey ;bottom:2px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'width='561px' height='561px' viewBox='0 0 561 561' style='enable-background:new 0 0 561 561;' xml:space='preserve'><g><g id='thumb-up'><path d='M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65c0-10.2-5.1-20.4-10.19928.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z'/></g></g></svg>J'aime</a><a href='comment'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'width='510px' height='510px' viewBox='0 0 510 510' style='enable-background:new 0 0 510 510;' xml:space='preserve'><g><g id='messenger'><path d='M459,0H51C22.95,0,0,22.95,0,51v459l102-102h357c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z'/></g></g></svg>Commenter</a><a href='share'><svg viewBox='0 -22 512 511' xmlns='http://www.w3.org/2000/svg' style='bottom:2px'><path d='m512 233.820312-212.777344-233.320312v139.203125h-45.238281c-140.273437 0-253.984375 113.710937-253.984375 253.984375v73.769531l20.09375-22.019531c68.316406-74.851562 164.980469-117.5 266.324219-117.5h12.804687v139.203125zm0 0'/></svg>Partager</a><div class='post-stats'><span>{{$post->likes_count}} J'aimes</span><span>0 Commentaires</span></div></div><div class='post-comment'><div class='user-avatar' style='background-image:url({{asset('avatar.jpg')}});width:40px;height:40px'></div><input type='text' name='comment' placeholder='Ajouter un commentaire..'></div></div>");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -675,30 +677,37 @@ $(document).on("click", ".post", function(e){
   });
 
 // Adding Comments
-$(document).on("click", ".comment", function(e){
-  var id = $(this).data('id');
-  e.preventDefault();
-  $.ajaxSetup({
-     headers: {
-         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-     }
 
-  });
-  jQuery.ajax({
-     url: "/ajax/addcomment",
-     method: 'post',
-     data: {
-       id : id,
-       content : $('#content-'+id).val(),
-     },
-     success: function(result){
-       alert(result.comment.content);
+$(document).ready(function(){
+  $(".add-post-comment").keypress(function(e){
+    if(e.keyCode == 13){
+      var id = $(this).data('postid');
+      e.preventDefault();
+      $.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+         }
 
-     },
-     error: function(jqXHR, textStatus, errorThrown){
-       alert('error');
-   }});
+      });
+      jQuery.ajax({
+         url: "/ajax/addcomment",
+         method: 'post',
+         data: {
+           id : id,
+           content : $('#content-'+id).val(),
+         },
+         success: function(result){
+           $(".comments-"+id).prepend("<div class='comment'><div class='user-avatar' style='background-image:url({{asset('avatar.jpg')}})'></div><div class='comment-content'><div class='user-infos'><span>"+result.comment.user.name+"</span><span>Ingenieur d'etat de L'ecole national des scienes appliqués de Tanger</span><span>"+result.comment.content+"</span><a href=''>Aimer</a><span> 0 <svg version='1.1' id='Capa_1' style='bottom:2px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'width='561px' height='561px' viewBox='0 0 561 561' style='enable-background:new 0 0 561 561;' xml:space='preserve'><g><g id='thumb-up'><path d='M0,535.5h102v-306H0V535.5z M561,255c0-28.05-22.95-51-51-51H349.35l25.5-117.3c0-2.55,0-5.1,0-7.65c0-10.2-5.1-20.4-10.199-28.05L336.6,25.5L168.3,193.8c-10.2,7.65-15.3,20.4-15.3,35.7v255c0,28.05,22.95,51,51,51h229.5c20.4,0,38.25-12.75,45.9-30.6l76.5-181.051c2.55-5.1,2.55-12.75,2.55-17.85v-51H561C561,257.55,561,255,561,255z'/></g></g></svg></span><a href=''>Répondre</a><span>0  Réponses </span></div><div class='replies'><div class='post-reply'><div class='user-avatar' style='background-image:url({{asset('avatar.jpg')}});height:35px;width:35px'></div><input type='text' name='reply' placeholder='Ajouter un une réponse..'></div></div></div></div>")
+
+         },
+         error: function(jqXHR, textStatus, errorThrown){
+           alert('error');
+       }});
+    }
   });
+});
+
+
 
 
 

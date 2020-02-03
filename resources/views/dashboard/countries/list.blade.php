@@ -15,6 +15,9 @@
   <th scope="col">currency</th>
   <th scope="col">Action</th>
   @foreach($list_countries as $country)
+  <tr>
+
+
   <td>{{$country->id}}</td>
   <td>{{$country->name}}</td>
   <td>{{$country->iso3}}</td>
@@ -30,9 +33,10 @@
       <button type="submit" class="btn btn-danger">Delete</button>
     </form>
     <a href="{{url('/Dashboard/countries/update/'.$country->id.'')}}">Update</a>
-    
+
 
   </td>
+    </tr>
   @endforeach
 </table>
 

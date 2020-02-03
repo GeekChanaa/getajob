@@ -18,6 +18,7 @@ class languagesController extends Controller
     $user_language->user_id = Auth::user()->id;
     $user_language->language_id = $request->language_id;
     $user_language->save();
+    $user_language = user_language::where('id','=',$user_language->id)->with('language')->first();
     return Response::json(array('success'=>true,'user_language'=>$user_language));
   }
 

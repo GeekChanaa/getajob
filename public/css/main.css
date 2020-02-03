@@ -571,6 +571,7 @@ a:hover{
 }
 .page{
   display: flex;
+  margin-top:15px;
 }
 .page>div:first-child{
   text-align: center;

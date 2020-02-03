@@ -16,6 +16,7 @@ class projectsController extends Controller
     $user_project->date_begin = $request->date_begin;
     $user_project->date_end = $request->date_end;
     $user_project->description = $request->description;
+    $user_project->save();
     return Response::json(array('success'=>true,'user_project'=>$user_project));
   }
 

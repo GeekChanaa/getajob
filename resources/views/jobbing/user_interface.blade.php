@@ -38,7 +38,7 @@
     <div class="usr-section">
       <h4>Certifications</h4>
       <div class="line"></div>
-      <div class="certifications">
+      <div id="certifications" class="certifications">
         @foreach($list_certifications as $certification)
         <div class="cert-group">
           <div class="certification">
@@ -66,7 +66,7 @@
       <h4>Volunteer Experiences</h4>
       <div class="line"></div>
       @foreach($list_volunteer_experiences as $volunteer_experience)
-      <div class="volunteer-group">
+      <div id="volunteer_experiences" class="volunteer-group">
         <div class="experience">
           <span>{{$volunteer_experience->role}}</span>
           <span>{{$volunteer_experience->organisation}} organisation</span>
@@ -91,7 +91,7 @@
     <div class="usr-section">
       <h4>Courses</h4>
       <div class="line"></div>
-      <div class="courses">
+      <div id="courses" class="courses">
         @foreach($list_courses as $course)
         <div class="course">
           <span>{{$course->name}}</span>
@@ -112,25 +112,53 @@
       @endforeach
       </div>
     </div>
-    <div class="usr-section">
+    <div id="projects" class="usr-section">
       <h4>Projects</h4>
       <div class="line"></div>
       @foreach($list_projects as $project)
-      <div class="">
-        <span>Name : {{$project->name}}</span>
-        <button class="btn btn-danger" id="deleteProject" data-id="{{$project->id}}">Delete</button>
+      <div class="cert-group">
+        <div class="certification">
+          <span>{{$project->name}}</span>
+          <span style="font-size: 0.8rem;font-weight:600">{{substr($project->date_begin,0,4)}}</span>
+        </div>
+        <button class="" id="deleteCertification" data-id="{{$project->id}}">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            <g>
+              <g>
+                <g>
+                  <path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
+                  <polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
       </div>
       @endforeach
     </div>
-    <div class="usr-section">
+    <div id="languages" class="usr-section">
       <h4>Languages</h4>
       <div class="line"></div>
       @foreach($list_languages as $language)
-      <div class="">
-        <span>name : {{$language->name}}</span>
-        <span>Date Begin : {{$language->date_begin}}</span>
-        <span>Date end : {{$language->date_end}}</span>
-        <button class="btn btn-danger" id="deleteLanguage" data-id="{{$language->id}}">Delete</button>
+      <div class="cert-group">
+        <div class="certification">
+          <span>{{$language->language->name}}</span>
+          <span style="font-size: 0.8rem;font-weight:600">intermediate</span>
+        </div>
+        <button class="" id="deleteCertification" data-id="{{$language->id}}">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            <g>
+              <g>
+                <g>
+                  <path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
+                  <polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
       </div>
       @endforeach
     </div>
@@ -609,7 +637,7 @@ $(document).on("click", "#addProject", function(e){
       description : $('#newProject-description').val(),
     },
      success: function(result){
-       alert(result.user_project.name);
+       $("#projects").append("<div class='cert-group'><div class='certification'><span>"+result.user_project.name+"</span><span style='font-size: 0.8rem;font-weight:600'>qsd</span></div><button class='' id='deleteCertification' data-id='"+result.user_project.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -636,7 +664,8 @@ $(document).on("click", "#addCourse", function(e){
        name : $('#newCourse-name').val(),
      },
      success: function(result){
-       alert(result.user_course.name);
+       $("#courses").append("<div class='cert-group'><div class='certification'><span>"+result.user_course.name+"</span></div><button class='' id='deleteCertification' data-id='"+result.user_course.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
+
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -663,7 +692,8 @@ $(document).on("click", "#addLanguage", function(e){
        language_id : $('#newLanguage-language-id').val(),
     },
      success: function(result){
-       alert(result.user_language.id);
+       $("#languages").append("<div class='cert-group'><div class='certification'><span>"+result.user_language.language.name+"</span><span style='font-size: 0.8rem;font-weight:600'>qsd</span></div><button class='' id='deleteCertification' data-id='"+result.user_language.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
+
 
      },
      error: function(jqXHR, textStatus, errorThrown){

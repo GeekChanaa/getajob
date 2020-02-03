@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 <!-- Hero section -->
@@ -72,7 +72,7 @@
     <p>À toute personne cherchant à construire sa carrière professionnelle</p>
   </div>
   <div class="section-right">
-    
+
   </div>
 </section>
 @endsection

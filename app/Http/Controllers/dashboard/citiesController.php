@@ -43,7 +43,7 @@ class citiesController extends Controller
 
     //Update city form
     public function update($id){
-      $city = city::where('id','=',$request->id)->first();
+      $city = city::where('id','=',$id)->first();
       $data=[
         'city' => $city,
       ];

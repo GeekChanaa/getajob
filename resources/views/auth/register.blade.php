@@ -75,7 +75,11 @@
                             <label for="city_id" class="col-md-4 col-form-label text-md-right">{{ __('city') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city_id" type="phone" class="form-control @error('city_id') is-invalid @enderror" name="city_id" value="{{ old('city') }}" required autocomplete="city">
+                                <select id="city_id"  class="form-control @error('city_id') is-invalid @enderror" name="city_id" value="{{ old('city') }}" required autocomplete="city">
+                                  @foreach($list_cities as $city)
+                                  <option value="{{$city->id}}">{{$city->name}}</option>
+                                  @endforeach
+                                </select>
 
                                 @error('city')
                                     <span class="invalid-feedback" role="alert">

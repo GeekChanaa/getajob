@@ -44,7 +44,7 @@ class countriesController extends Controller
 
     //Update country form
     public function update($id){
-      $country = country::where('id','=',$request->id)->first();
+      $country = country::where('id','=',$id)->first();
       $data=[
         'country' => $country,
       ];

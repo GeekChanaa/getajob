@@ -17,9 +17,12 @@
 DASHBOARD VIEWS
 
 *******/
-
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/Dashboard','dashboard\dashboardController@index');
 
+
+
+Auth::routes();
 
 // Countries Routes
 Route::get('/Dashboard/countries','dashboard\countriesController@list');
@@ -248,10 +251,3 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::post('/ajax/profile/deletepatent','patentsController@deleteAjax');
   Route::post('/ajax/profile/deletevolunteerexperience','volunteerExperiencesController@deleteAjax');
 });
-
-
-
-
-Auth::routes();
-
-Route::get('/', 'HomeController@index')->name('home');

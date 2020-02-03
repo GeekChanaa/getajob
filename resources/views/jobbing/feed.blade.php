@@ -5,6 +5,15 @@
 @section('content')
 <div class="feed-wrapper">
   <div class="left-side">
+    <div class="usr-cover">
+      <div class="usr-avatar">
+        A
+      </div>
+    </div>
+    <div class="usr-infos">
+      <span>Adnane AMEZIANE</span>
+      <span>Freelancer At <span>Mostaql</span></span>
+    </div>
   </div>
   <div class="main-content">
     <div class="create-post">
@@ -327,7 +336,7 @@
     </div>
   </div>
   <div class="right-side">
-    <div class="section">
+    <div class="section pages">
       <div class="section-header">
         <h3>Pages</h3>
         <div class="line"></div>
@@ -336,10 +345,15 @@
         </svg>
       </div>
      @foreach($list_pages as $page)
-      <div class="">
-        <span>Name : {{$page->name}}</span>
-        <button class="like-page" data-pageid="{{$page->id}}">like page</button>
-        <button class="follow-page" data-pageid="{{$page->id}}">follow page</button>
+      <div class="page">
+        <div class="page-avatar">
+          P
+        </div>
+        <div>
+          <span>{{$page->name}}</span>
+          <button class="like-page" data-pageid="{{$page->id}}">Like</button>
+          <button class="follow-page" data-pageid="{{$page->id}}">Follow</button>
+        </div>
 
       </div>
      @endforeach

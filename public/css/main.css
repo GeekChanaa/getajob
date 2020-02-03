@@ -252,6 +252,8 @@ a:hover{
 .feed-wrapper .left-side,.feed-wrapper .right-side{
   width:300px;
   margin-top:1.5rem;
+  position: sticky !important;
+  top: 110px;
 }
 .feed-wrapper .left-side{
   background: #fff;

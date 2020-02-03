@@ -5,25 +5,33 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/countries/add')}}" method="post">
+<form class="db-form" action="{{url('/Dashboard/countries/add')}}" method="post">
 {{csrf_field()}}
-<div class="">
-  <span>name : </span> <input type="text" name="name">
+<h1>Create a country</h1>
+<div class="line"></div>
+<div class="form-field">
+  <label>name</label>
+  <input type="text" name="name">
 </div>
-<div class="">
-  <span>iso3 : </span> <input type="text" name="iso3">
+<div class="form-field">
+  <label>iso3</label>
+  <input type="text" name="iso3">
 </div>
-<div class="">
-  <span>iso2 : </span> <input type="text" name="iso2">
+<div class="form-field">
+  <label>iso2</label>
+  <input type="text" name="iso2">
 </div>
-<div class="">
-  <span>phonecode : </span> <input type="text" name="phonecode">
+<div class="form-field">
+  <label>phonecode</label>
+  <input type="text" name="phonecode">
 </div>
-<div class="">
-  <span>capital : </span> <input type="text" name="capital">
+<div class="form-field">
+  <label>Capital</label>
+  <input type="text" name="capital">
 </div>
-<div class="">
-  <span>currency : </span> <input type="text" name="currency">
+<div class="form-field">
+  <label>currency</label>
+  <input type="text" name="currency">
 </div>
 <button type="submit" name="button">Create</button>
 </form>

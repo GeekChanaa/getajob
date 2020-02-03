@@ -5,28 +5,37 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/trainings/add')}}" method="post">
+<form class="db-form" action="{{url('/Dashboard/trainings/add')}}" method="post">
+  <h1>Create a training</h1>
+  <div class="line"></div>
 {{csrf_field()}}
-<div class="">
-  <span>title : </span> <input type="text" name="title">
+<div class="form-field">
+  <label>title</label>
+  <input type="text" name="title">
 </div>
-<div class="">
-  <span>diplomat : </span> <input type="text" name="diplomat">
+<div class="form-field">
+  <label>diplomat</label>
+  <input type="text" name="diplomat">
 </div>
-<div class="">
-  <span>description : </span> <input type="text" name="description">
+<div class="form-field">
+  <label>description</label>
+  <input type="text" name="description">
 </div>
-<div class="">
-  <span>conditions : </span> <input type="text" name="conditions">
+<div class="form-field">
+  <label>conditions</label>
+  <input type="text" name="conditions">
 </div>
-<div class="">
-  <span>phone : </span> <input type="text" name="phone">
+<div class="form-field">
+  <label>phone</label>
+  <input type="text" name="phone">
 </div>
-<div class="">
-  <span>email : </span> <input type="text" name="email">
+<div class="form-field">
+  <label>email</label>
+  <input type="text" name="email">
 </div>
-<div class="">
-  <span>school : </span> <input type="text" name="school">
+<div class="form-field">
+  <label>school</label>
+  <input type="text" name="school">
 </div>
 
 <button type="submit" name="button">Create</button>

@@ -4,9 +4,158 @@
 @section('content')
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-certification">
-  New certification
-</button>
+<div class="profile-wrapper">
+  <div class="main-content">
+    <div class="usr-cover">
+      <div class="usr-avatar">
+        A
+      </div>
+    </div>
+    <div class="usr-section">
+      <h4>Informations</h4>
+      <div class="line"></div>
+      <div class="">
+        <span>Name</span>
+        <span>{{Auth::user()->name}}</span>
+      </div>
+      <div class="">
+        <span>Email</span>
+        <span>{{Auth::user()->email}}</span>
+      </div>
+      <div class="">
+        <span>Phone</span>
+        <span>{{Auth::user()->phone}}</span>
+      </div>
+      <div class="">
+        <span>Country</span>
+        <span>{{Auth::user()->country->name}}</span>
+      </div>
+      <div class="">
+        <span>City</span>
+        <span>{{Auth::user()->city->name}}</span>
+      </div>
+    </div>
+    <div class="usr-section">
+      <h4>Certifications</h4>
+      <div class="line"></div>
+      <div class="certifications">
+        @foreach($list_certifications as $certification)
+        <div class="cert-group">
+          <div class="certification">
+            <span>{{$certification->certification}}</span>
+            <span style="font-size: 0.8rem;font-weight:600">{{substr($certification->date_obtained,0,4)}}</span>
+          </div>
+          <button class="" id="deleteCertification" data-id="{{$certification->id}}">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            	<g>
+            		<g>
+            			<g>
+            				<path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
+            				<polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
+            			</g>
+            		</g>
+            	</g>
+            </svg>
+          </button>
+        </div>
+        @endforeach
+      </div>
+    </div>
+    <div class="usr-section">
+      <h4>Volunteer Experiences</h4>
+      <div class="line"></div>
+      @foreach($list_volunteer_experiences as $volunteer_experience)
+      <div class="volunteer-group">
+        <div class="experience">
+          <span>{{$volunteer_experience->role}}</span>
+          <span>{{$volunteer_experience->organisation}} organisation</span>
+        </div>
+        <button class="btn btn-danger" id="deleteVolunteerExperience" data-id="{{$volunteer_experience->id}}">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            <g>
+              <g>
+                <g>
+                  <path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
+                  <polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+      @endforeach
+
+    </div>
+    <div class="usr-section">
+      <h4>Courses</h4>
+      <div class="line"></div>
+      <div class="courses">
+        @foreach($list_courses as $course)
+        <div class="course">
+          <span>{{$course->name}}</span>
+          <button class="btn btn-danger" id="deleteCourse" data-id="{{$course->id}}">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            <g>
+              <g>
+                <g>
+                  <path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
+                  <polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+      @endforeach
+      </div>
+    </div>
+    <div class="usr-section">
+      <h4>Projects</h4>
+      <div class="line"></div>
+      @foreach($list_projects as $project)
+      <div class="">
+        <span>Name : {{$project->name}}</span>
+        <button class="btn btn-danger" id="deleteProject" data-id="{{$project->id}}">Delete</button>
+      </div>
+      @endforeach
+    </div>
+    <div class="usr-section">
+      <h4>Languages</h4>
+      <div class="line"></div>
+      @foreach($list_languages as $language)
+      <div class="">
+        <span>name : {{$language->name}}</span>
+        <span>Date Begin : {{$language->date_begin}}</span>
+        <span>Date end : {{$language->date_end}}</span>
+        <button class="btn btn-danger" id="deleteLanguage" data-id="{{$language->id}}">Delete</button>
+      </div>
+      @endforeach
+    </div>
+  </div>
+  <div class="right-side">
+    <button type="button" class="" data-toggle="modal" data-target="#new-certification">
+      New certification
+    </button>
+    <button type="button" class="" data-toggle="modal" data-target="#new-volunteer-experience">
+      New volunteer experience
+    </button>
+    <button type="button" class="" data-toggle="modal" data-target="#new-patent">
+      New Patent
+    </button>
+    <button type="button" class="" data-toggle="modal" data-target="#new-course">
+      New Course
+    </button>
+    <button type="button" class="" data-toggle="modal" data-target="#new-project">
+      New Project
+    </button>
+    <button type="button" class="" data-toggle="modal" data-target="#new-language">
+      New Language
+    </button>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="new-certification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -43,10 +192,6 @@
     </div>
   </div>
 </div>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-volunteer-experience">
-  New volunteer experience
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="new-volunteer-experience" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -96,10 +241,6 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-patent">
-  New Patent
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="new-patent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -140,10 +281,6 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-course">
-  New Course
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="new-course" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -167,10 +304,6 @@
     </div>
   </div>
 </div>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-project">
-  New Project
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="new-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -208,10 +341,6 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-language">
-  New Language
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="new-language" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -239,100 +368,7 @@
     </div>
   </div>
 </div>
-<div class="">
-  <h4>Informations</h4>
-  <div class="">
-    <span>Name</span>
-    <span>{{Auth::user()->name}}</span>
-  </div>
-  <div class="">
-    <span>Email</span>
-    <span>{{Auth::user()->email}}</span>
-  </div>
-  <div class="">
-    <span>Phone</span>
-    <span>{{Auth::user()->phone}}</span>
-  </div>
-  <div class="">
-    <span>Country</span>
-    <span>{{Auth::user()->country->name}}</span>
-  </div>
-  <div class="">
-    <span>City</span>
-    <span>{{Auth::user()->city->name}}</span>
-  </div>
-</div>
 
-<div class="">
-  <h5>Certifications</h5>
-    @foreach($list_certifications as $certification)
-    <div class="">
-      <span>Certification : {{$certification->certification}}</span>
-      <button class="btn btn-danger" id="deleteCertification" data-id="{{$certification->id}}">Delete</button>
-    </div>
-    @endforeach
-</div>
-
-
-<div class="">
-  <h5>Volunteer Experiences</h5>
-  @foreach($list_volunteer_experiences as $volunteer_experience)
-  <div class="">
-    <span>organisation : {{$volunteer_experience->organisation}}</span>
-    <span>role : {{$volunteer_experience->role}}</span>
-    <span>cause : {{$volunteer_experience->cause}}</span>
-    <button class="btn btn-danger" id="deleteVolunteerExperience" data-id="{{$volunteer_experience->id}}">Delete</button>
-  </div>
-  @endforeach
-
-</div>
-
-<div class="">
-  <h5>Patents</h5>
-
-    @foreach($list_patents as $patent)
-      <div class="">
-        <span>Title : {{$patent->title}}</span>
-        <span>Office : {{$patent->office}}</span>
-        <span>Status : {{$patent->status}}</span>
-        <button class="btn btn-danger" id="deletePatent" data-id="{{$patent->id}}">Delete</button>
-      </div>
-    @endforeach
-
-</div>
-
-
-<div class="">
-  <h5>Courses</h5>
-    @foreach($list_courses as $course)
-    <div class="">
-      <span>Course name : {{$course->name}}</span>
-      <button class="btn btn-danger" id="deleteCourse" data-id="{{$course->id}}">Delete</button>
-    </div>
-    @endforeach
-</div>
-
-<div class="">
-  <h5>Projects</h5>
-    @foreach($list_projects as $project)
-    <div class="">
-      <span>Name : {{$project->name}}</span>
-      <button class="btn btn-danger" id="deleteProject" data-id="{{$project->id}}">Delete</button>
-    </div>
-    @endforeach
-</div>
-
-<div class="">
-  <h5>Languages</h5>
-    @foreach($list_languages as $language)
-    <div class="">
-      <span>name : {{$language->name}}</span>
-      <span>Date Begin : {{$language->date_begin}}</span>
-      <span>Date end : {{$language->date_end}}</span>
-      <button class="btn btn-danger" id="deleteLanguage" data-id="{{$language->id}}">Delete</button>
-    </div>
-    @endforeach
-</div>
 
 
 <script type="text/javascript">

@@ -1,7 +1,5 @@
 @extends('layouts.main')
 
-
-
 @section('content')
 <div class="feed-wrapper">
   <div class="left-side">

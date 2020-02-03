@@ -71,8 +71,9 @@
     <h1 class="section-title" style="color:var(--main-color)">À qui s’adresse GETAJOB ?</h1>
     <p>À toute personne cherchant à construire sa carrière professionnelle</p>
   </div>
-  <div class="section-right">
-    
+  <div class="section-right" style="position:relative">
+    <div class="section-bg">
+    </div>
   </div>
 </section>
 @endsection

@@ -1308,6 +1308,7 @@ th, td {
   font-weight: 600;
   margin-left: auto;
   display: block;
+  cursor: pointer;
 }
 .seminar .line{
   width: 100%;
@@ -1315,7 +1316,16 @@ th, td {
   background: #f1f1f1;
   margin-bottom: 1.3rem;
 }
-
+.create-seminar a{
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #215cde;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  border: 2px solid #85a9f7;
+  border-radius: 1.5em;
+}
 /* Media Queries */
 @media only screen and (max-width: 1100px) {
 

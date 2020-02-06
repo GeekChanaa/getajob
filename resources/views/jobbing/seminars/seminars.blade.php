@@ -31,9 +31,9 @@
     <button class="interestedIn" data-id="{{$seminar->id}}" name="button">Interested In</button>
   </div>
   @endforeach
-</div>
-<div class="">
-  <a href="{{url('/feed/create_seminar')}}" class=""> Create Seminar </a>
+  <div class="create-seminar" style="width:100%">
+    <a href="{{url('/feed/create_seminar')}}" class="">Create Seminar </a>
+  </div>
 </div>
 
 

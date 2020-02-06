@@ -1221,7 +1221,100 @@ th, td {
 }
 
 
+/*  Seminars  */
+.seminars{
+  display: flex;
+  flex-wrap:wrap;
+  background: white;
+  box-shadow: 0 10px 10px -10px #eaeaea;
+  padding: 3rem 2rem;
+}
+.seminar{
+  border: 1px solid #d6def1;
+  padding: 1.2rem 1.7rem;
+  width: 250px;
+  margin-right: 2rem;
+}
+.seminar-header{
+  display: flex;
+}
+.seminar-avatar{
+  width: 60px;
+  height: 60px;
+  line-height: 52px;
+  text-align: center;
+  background: var(--main-color);
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: 4px solid #85a9f7;
+}
+.seminar-title{
+  flex:1;
+}
+.seminar-title span{
+  font-weight: 600;
+  margin-top: 0.6rem;
+  font-size: 1.3rem;
+  display: block;
+  color: #505050;
+}
+.seminar-description span{
+  margin: 0.1rem 0 1.2rem 0.3rem;
+  display: block;
+  border-left: 3px solid #85a9f7;
+  padding: .3rem 0.8rem;
+  line-height: 20px;
+  color: #6f6f6f;
+  font-size: 0.9rem;
+}
+.seminar-date{
+  margin-bottom: 0.3rem;
+  display: block;
 
+}
+.seminar-date span:first-child{
+  font-size: 0.7rem;
+  color: #85a9f7;
+  display: block;
+
+}
+.seminar-date span:last-child{
+  color: #a5a4a4;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+}
+.seminar-user{
+  font-size: 0.7rem;
+  color: #a09c9c;
+  margin:1rem 0;
+}
+.seminar-user svg{
+  width: 15px;
+  fill: #2a488a;
+  margin-right: 4px;
+}
+.seminar button{
+  background: none;
+  color: var(--main-color);
+  border: none;
+  padding: 0;
+  padding-bottom: 0.2rem;
+  border-bottom: 3px solid #215cde;
+  border-radius: 0;
+  margin-top: 1rem;
+  font-weight: 600;
+  margin-left: auto;
+  display: block;
+}
+.seminar .line{
+  width: 100%;
+  height: 2px;
+  background: #f1f1f1;
+  margin-bottom: 1.3rem;
+}
 
 /* Media Queries */
 @media only screen and (max-width: 1100px) {

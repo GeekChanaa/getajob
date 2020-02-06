@@ -192,6 +192,7 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::get('/groups','groupsController@groups');
   Route::get('/groups/group/{id}','groupsController@group');
   Route::get('/seminars','seminarsController@seminars');
+  Route::get('/seminars/seminar/{id}','seminarsController@seminar');
   Route::get('/trainings','trainingsController@trainings');
   Route::get('/pages','pagesController@pages');
   Route::get('/pages/page/{id}','pagesController@page');
@@ -218,6 +219,7 @@ Route::group(['middleware' => ['logged_in']], function () {
   Route::post('/ajax/addpost','postsController@addpost');
   Route::post('/ajax/addreply','postsController@addreply');
   Route::post('/ajax/likepost','postsController@likepost');
+  Route::post('/ajax/unlikepost','postsController@unlikepost');
   Route::post('/ajax/reportpost','postsController@reportpost');
   Route::post('/ajax/likecomment','postsController@likecomment');
   Route::post('/ajax/reportcomment','postsController@reportcomment');

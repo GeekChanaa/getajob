@@ -5,11 +5,14 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/domains/add')}}" method="post">
+
+<form class="db-form" action="{{url('/Dashboard/domains/add')}}" method="post">
 {{csrf_field()}}
-<div class="">
-  <span>name : </span> <input type="text" name="name">
-</div>
+<h1>Create a Domain</h1>
+<div class="line"></div>
+<div class="form-field">
+  <label>name</label>
+  <input type="text" name="name">
 
 <button type="submit" name="button">Create</button>
 </form>

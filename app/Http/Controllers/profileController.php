@@ -17,12 +17,12 @@ class profileController extends Controller
     //User interface
     public function user_interface(){
       $data=[
-        'list_volunteer_experiences' => volunteer_experience::all(),
-        'list_certifications' => user_certification::all(),
-        'list_patents' => patent::all(),
-        'list_courses' => user_course::all(),
-        'list_projects' => user_project::all(),
-        'list_languages' => user_language::all(),
+        'list_volunteer_experiences' => volunteer_experience::all()->where('user_id','=',Auth::user()->id),
+        'list_certifications' => user_certification::all()->where('user_id','=',Auth::user()->id),
+        'list_patents' => patent::all()->where('user_id','=',Auth::user()->id),
+        'list_courses' => user_course::all()->where('user_id','=',Auth::user()->id),
+        'list_projects' => user_project::all()->where('user_id','=',Auth::user()->id),
+        'list_languages' => user_language::all()->where('user_id','=',Auth::user()->id),
         'languages' => language::all(),
       ];
       return view('jobbing.user_interface')->with($data);

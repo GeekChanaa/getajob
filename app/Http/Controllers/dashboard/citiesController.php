@@ -46,6 +46,7 @@ class citiesController extends Controller
       $city = city::where('id','=',$id)->first();
       $data=[
         'city' => $city,
+        'list_countries' => country::all(),
       ];
       return view('dashboard.cities.update')->with($data);
     }

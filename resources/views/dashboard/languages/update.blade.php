@@ -5,14 +5,17 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/languages/update')}}" method="post">
+<form class="db-form" action="{{url('/Dashboard/languages/update')}}" method="post">
 {{csrf_field()}}
-<div class="">
-  <span>name : </span> <input type="text" name="name" value="{{$language->name}}">
+<h1>Update a language</h1>
+<div class="line"></div>
+<div class="form-field">
+  <label>name</label>
+  <input type="text" name="name" value="{{$language->name}}">
+  <input type="hidden" name="id" value="{{$language->id}}">
 </div>
-<input type="hidden"  name="id" value="{{$language->id}}">
 
-<button type="submit" name="button">Create</button>
+<button type="submit" name="button">Update</button>
 </form>
 
 

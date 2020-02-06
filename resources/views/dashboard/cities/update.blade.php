@@ -1,3 +1,4 @@
+
 @extends('layouts.dashboard')
 
 
@@ -5,22 +6,24 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/cities/update')}}" method="post">
+<form class="db-form" action="{{url('/Dashboard/cities/update')}}" method="post">
 {{csrf_field()}}
-<div class="">
-  <span>name : </span> <input type="text" name="name" value="{{$city->name}}">
+<h1>Create a city</h1>
+<div class="line"></div>
+<div class="form-field">
+  <label>name</label>
+  <input type="text" name="name" value="{{$city->name}}">
+  <input type="hidden" name="id" value="{{$city->id}}">
 </div>
-<div class="">
-  <span>Country : </span>
+<div class="form-field">
+  <label>Country</label>
   <select type="text" name="country_id">
     @foreach($list_countries as $country)
-      <option @if($country->id == $city->country_id) selected @endif value="{{$country->id}}">{{$country->name}}</option>
+      <option value="{{$country->id}}">{{$country->name}}</option>
     @endforeach
   </select>
 </div>
-<input type="hidden"  name="id" value="{{$city->id}}">
-
-<button type="submit" name="button">Create</button>
+<button type="submit" name="button">Update</button>
 </form>
 
 

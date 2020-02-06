@@ -44,4 +44,13 @@ class seminarsController extends Controller
       $II->save();
       return Response::json(array('success'=>true,'seminar'=>$II));
     }
+
+    // Seminar route
+    public function seminar($id){
+      $data=[
+        'seminar' => seminar::where('id','=',$id)->first(),
+      ];
+      return view('jobbing.seminars.seminar')->with($data);
+
+    }
 }

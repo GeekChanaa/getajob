@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    //Number of likes
+    public function likes(){
+      return $this->hasMany('App\post_like');
+    }
+
     public function country(){
       return $this->belongsTo('App\country');
     }

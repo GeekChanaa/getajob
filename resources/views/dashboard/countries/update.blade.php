@@ -5,29 +5,36 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/countries/update')}}" method="post">
+<form class="db-form" action="{{url('/Dashboard/countries/update')}}" method="post">
 {{csrf_field()}}
-<div class="">
-  <span>name : </span> <input type="text" name="name" value="{{$country->name}}">
+<h1>Update a country</h1>
+<div class="line"></div>
+<div class="form-field">
+  <label>name</label>
+  <input type="text" name="name" value="{{$country->name}}">
+  <input type="hidden" name="id" value="{{$country->id}}">
 </div>
-<div class="">
-  <span>iso3 : </span> <input type="text" name="iso3" value="{{$country->iso3}}">
+<div class="form-field">
+  <label>iso3</label>
+  <input type="text" name="iso3" value="{{$country->iso3}}">
 </div>
-<div class="">
-  <span>iso2 : </span> <input type="text" name="iso2" value="{{$country->iso2}}">
+<div class="form-field">
+  <label>iso2</label>
+  <input type="text" name="iso2" value="{{$country->iso2}}">
 </div>
-<div class="">
-  <span>phonecode : </span> <input type="text" name="phonecode" value="{{$country->phonecode}}">
+<div class="form-field">
+  <label>phonecode</label>
+  <input type="text" name="phonecode" value="{{$country->phonecode}}">
 </div>
-<div class="">
-  <span>capital : </span> <input type="text" name="capital" value="{{$country->capital}}">
+<div class="form-field">
+  <label>Capital</label>
+  <input type="text" name="capital" value="{{$country->capital}}">
 </div>
-<div class="">
-  <span>currency : </span> <input type="text" name="currency" value="{{$country->currency}}">
+<div class="form-field">
+  <label>currency</label>
+  <input type="text" name="currency" value="{{$country->currency}}">
 </div>
-<input type="hidden"  name="id" value="{{$country->id}}">
-
-<button type="submit" name="button">Create</button>
+<button type="submit" name="button">Update</button>
 </form>
 
 

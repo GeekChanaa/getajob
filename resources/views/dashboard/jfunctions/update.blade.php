@@ -5,14 +5,17 @@
 @section('content')
 
 
-<form class="" action="{{url('/Dashboard/jfunctions/update')}}" method="post">
+<form class="db-form" action="{{url('/Dashboard/jfunctions/update')}}" method="post">
 {{csrf_field()}}
-<div class="">
-  <span>name : </span> <input type="text" name="name" value="{{$jfunction->name}}">
+<h1>Update a job function</h1>
+<div class="line"></div>
+<div class="form-field">
+  <label>name</label>
+  <input type="text" name="name" value="{{$jfunction->name}}">
+  <input type="hidden" name="id" value="{{$jfunction->id}}">
 </div>
-<input type="hidden"  name="id" value="{{$jfunction->id}}">
 
-<button type="submit" name="button">Create</button>
+<button type="submit" name="button">Update</button>
 </form>
 
 

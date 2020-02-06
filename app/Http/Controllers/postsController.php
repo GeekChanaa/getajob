@@ -61,6 +61,7 @@ class postsController extends Controller
       $reply->user_id = Auth::user()->id;
       $reply->comment_id = $request->id;
       $reply->save();
+      $reply = reply::where('id','=',$reply->id)->with('user')->first();
       return Response::json(array('success'=>true,'reply'=>$reply));
     }
 
@@ -70,6 +71,12 @@ class postsController extends Controller
       $like->post_id = $request->post_id;
       $like->user_id = Auth::user()->id;
       $like->save();
+    }
+
+    // Like post
+    public function unlikepost(Request $request){
+      $like = post_like::where('post_id','=',$request->post_id);
+      $like->delete();
     }
 
     // Like comment

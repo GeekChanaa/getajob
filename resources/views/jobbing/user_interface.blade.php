@@ -62,32 +62,35 @@
         @endforeach
       </div>
     </div>
+
     <div class="usr-section">
       <h4>Volunteer Experiences</h4>
       <div class="line"></div>
-      @foreach($list_volunteer_experiences as $volunteer_experience)
-      <div id="volunteer_experiences" class="volunteer-group">
-        <div class="experience">
-          <span>{{$volunteer_experience->role}}</span>
-          <span>{{$volunteer_experience->organisation}} organisation</span>
+      <div id="volunteer_experiences" class="certifications">
+        @foreach($list_volunteer_experiences as $volunteer_experience)
+        <div class="cert-group">
+          <div class="certification">
+            <span>{{$volunteer_experience->role}}</span>
+            <span style="font-size: 0.8rem;font-weight:600">{{$volunteer_experience->organisation}}</span>
+          </div>
+          <button class="" id="deleteVolunteerExperience" data-id="{{$volunteer_experience->id}}">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            	<g>
+            		<g>
+            			<g>
+            				<path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
+            				<polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
+            			</g>
+            		</g>
+            	</g>
+            </svg>
+          </button>
         </div>
-        <button class="btn btn-danger" id="deleteVolunteerExperience" data-id="{{$volunteer_experience->id}}">
-          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
-            <g>
-              <g>
-                <g>
-                  <path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
-                  <polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/>
-                </g>
-              </g>
-            </g>
-          </svg>
-        </button>
+        @endforeach
       </div>
-      @endforeach
-
     </div>
+
     <div class="usr-section">
       <h4>Courses</h4>
       <div class="line"></div>
@@ -95,7 +98,7 @@
         @foreach($list_courses as $course)
         <div class="course">
           <span>{{$course->name}}</span>
-          <button class="btn btn-danger" id="deleteCourse" data-id="{{$course->id}}">
+          <button id="deleteCourse" data-id="{{$course->id}}">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
             <g>
@@ -121,7 +124,7 @@
           <span>{{$project->name}}</span>
           <span style="font-size: 0.8rem;font-weight:600">{{substr($project->date_begin,0,4)}}</span>
         </div>
-        <button class="" id="deleteCertification" data-id="{{$project->id}}">
+        <button class="" id="deleteProject" data-id="{{$project->id}}">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
             <g>
@@ -146,7 +149,7 @@
           <span>{{$language->language->name}}</span>
           <span style="font-size: 0.8rem;font-weight:600">intermediate</span>
         </div>
-        <button class="" id="deleteCertification" data-id="{{$language->id}}">
+        <button class="" id="deleteLanguage" data-id="{{$language->id}}">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
             <g>
@@ -215,7 +218,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="addCertification" class="btn btn-primary">Add</button>
+        <button type="button" id="addCertification" data-dismiss="modal" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>
@@ -263,7 +266,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="addVolunteerExperience" class="btn btn-primary">add</button>
+        <button type="button" id="addVolunteerExperience" data-dismiss="modal" class="btn btn-primary">add</button>
       </div>
     </div>
   </div>
@@ -303,7 +306,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="addPatent" class="btn btn-primary">Add</button>
+        <button type="button" id="addPatent" data-dismiss="modal" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>
@@ -327,7 +330,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="addCourse">Add</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" id="addCourse">Add</button>
       </div>
     </div>
   </div>
@@ -363,7 +366,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="addProject" class="btn btn-primary">Add</button>
+        <button type="button" id="addProject" data-dismiss="modal" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>
@@ -391,7 +394,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="addLanguage" class="btn btn-primary">Add</button>
+        <button type="button" id="addLanguage" data-dismiss="modal" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>
@@ -404,6 +407,7 @@
 
 $(document).on("click", "#deleteCertification", function(e){
   var id = $(this).data('id');
+  var tonone = $(this).parent();
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -418,7 +422,7 @@ $(document).on("click", "#deleteCertification", function(e){
        id : id,
     },
      success: function(result){
-       alert('success');
+       tonone.css("display",'none');
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -430,6 +434,7 @@ $(document).on("click", "#deleteCertification", function(e){
 
 $(document).on("click", "#deleteCourse", function(e){
   var id = $(this).data('id');
+  var tonone = $(this).parent();
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -445,7 +450,7 @@ $(document).on("click", "#deleteCourse", function(e){
 
     },
      success: function(result){
-       alert('success');
+       tonone.css("display","none");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -456,6 +461,7 @@ $(document).on("click", "#deleteCourse", function(e){
 // delete patent
 $(document).on("click", "#deletePatent", function(e){
   var id = $(this).data('id');
+  var tonone = $(this).parent();
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -470,7 +476,7 @@ $(document).on("click", "#deletePatent", function(e){
        id : id,
        },
      success: function(result){
-       alert('success');
+       tonone.css("display","none");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -481,6 +487,7 @@ $(document).on("click", "#deletePatent", function(e){
 // delete volunteer experience
 $(document).on("click", "#deleteVolunteerExperience", function(e){
   var id = $(this).data('id');
+  var tonone = $(this).parent();
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -495,7 +502,7 @@ $(document).on("click", "#deleteVolunteerExperience", function(e){
        id : id ,
        },
      success: function(result){
-       alert('success');
+       tonone.css("display","none");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -506,6 +513,8 @@ $(document).on("click", "#deleteVolunteerExperience", function(e){
 // delete language
 $(document).on("click", "#deleteLanguage", function(e){
   var id = $(this).data('id');
+  var tonone = $(this).parent();
+
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -520,7 +529,7 @@ $(document).on("click", "#deleteLanguage", function(e){
        id : id ,
     },
      success: function(result){
-       alert('success');
+       tonone.css("display","none");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -532,6 +541,7 @@ $(document).on("click", "#deleteLanguage", function(e){
 // delete project
 $(document).on("click", "#deleteProject", function(e){
   var id = $(this).data('id');
+  var tonone = $(this).parent();
   e.preventDefault();
   $.ajaxSetup({
      headers: {
@@ -546,7 +556,7 @@ $(document).on("click", "#deleteProject", function(e){
        id : id ,
     },
      success: function(result){
-       alert('success');
+       tonone.css("display","none");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -576,7 +586,7 @@ $(document).on("click", "#addCertification", function(e){
        expiry_date :$('#newCertification-expiry-date').val()
     },
      success: function(result){
-       alert(result.user_certification.certification);
+       $('#certifications').prepend('<div class="cert-group"><div class="certification"><span>'+result.user_certification.certification+'</span><span style="font-size: 0.8rem;font-weight:600">'+result.user_certification.date_obtained+'</span></div><button class="" id="deleteCertification" data-id="'+result.user_certification.id+'"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve"><g><g><g><path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/><polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			"/></g></g></g></svg></button></div>')
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -637,7 +647,7 @@ $(document).on("click", "#addProject", function(e){
       description : $('#newProject-description').val(),
     },
      success: function(result){
-       $("#projects").append("<div class='cert-group'><div class='certification'><span>"+result.user_project.name+"</span><span style='font-size: 0.8rem;font-weight:600'>qsd</span></div><button class='' id='deleteCertification' data-id='"+result.user_project.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
+       $("#projects").append("<div class='cert-group'><div class='certification'><span>"+result.user_project.name+"</span><span style='font-size: 0.8rem;font-weight:600'>qsd</span></div><button class='' id='deleteProject' data-id='"+result.user_project.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
 
      },
      error: function(jqXHR, textStatus, errorThrown){
@@ -664,7 +674,7 @@ $(document).on("click", "#addCourse", function(e){
        name : $('#newCourse-name').val(),
      },
      success: function(result){
-       $("#courses").append("<div class='cert-group'><div class='certification'><span>"+result.user_course.name+"</span></div><button class='' id='deleteCertification' data-id='"+result.user_course.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
+       $("#courses").append("<div class='cert-group'><div class='certification'><span>"+result.user_course.name+"</span></div><button class='' id='deleteCourse' data-id='"+result.user_course.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
 
 
      },
@@ -692,7 +702,7 @@ $(document).on("click", "#addLanguage", function(e){
        language_id : $('#newLanguage-language-id').val(),
     },
      success: function(result){
-       $("#languages").append("<div class='cert-group'><div class='certification'><span>"+result.user_language.language.name+"</span><span style='font-size: 0.8rem;font-weight:600'>qsd</span></div><button class='' id='deleteCertification' data-id='"+result.user_language.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
+       $("#languages").append("<div class='cert-group'><div class='certification'><span>"+result.user_language.language.name+"</span><span style='font-size: 0.8rem;font-weight:600'>qsd</span></div><button class='' id='deleteLanguage' data-id='"+result.user_language.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>");
 
 
      },
@@ -726,8 +736,7 @@ $(document).on("click", "#addVolunteerExperience", function(e){
       description : $('#newVolunteerexperience-description').val()
      },
      success: function(result){
-       alert(result.volunteer_experience.organisation);
-
+       $('#volunteer_experiences').prepend("<div class='cert-group'><div class='certification'><span>"+result.volunteer_experience.role+"</span><span style='font-size: 0.8rem;font-weight:600'>"+result.volunteer_experience.organisation+"</span></div><button class='' id='deleteVolunteerExperience' data-id='"+result.volunteer_experience.id+"'><svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'><g><g><g><path d='M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z'/><polygon points='266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 			'/></g></g></g></svg></button></div>")
      },
      error: function(jqXHR, textStatus, errorThrown){
        alert('error');

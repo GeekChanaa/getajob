@@ -21,7 +21,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_countries}}</span>
       <a href="{{url('/Dashboard/countries/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -37,13 +37,13 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_cities}}</span>
       <a href="{{url('/Dashboard/cities/create')}}"><span>+</span></a>
     </div>
   </div>
   <div class="db-card">
     <div class="left-side">
-      <a href="{{url('/Dashboard/entreprises')}}">
+      <a href="{{url('/Dashboard/enterprises')}}">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
         		<g>
@@ -61,8 +61,8 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
-      <a href="{{url('/Dashboard/entreprises/create')}}"><span>+</span></a>
+      <span>{{$nbr_enterprises}}</span>
+      <a href="{{url('/Dashboard/enterprises/create')}}"><span>+</span></a>
     </div>
   </div>
   <div class="db-card">
@@ -90,7 +90,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_schools}}</span>
       <a href="{{url('/Dashboard/schools/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -103,7 +103,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_users}}</span>
       <a href="{{url('/Dashboard/users/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -119,7 +119,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_skills}}</span>
       <a href="{{url('/Dashboard/skills/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -170,7 +170,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_languages}}</span>
       <a href="{{url('/Dashboard/languages/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -207,7 +207,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_certifications}}</span>
       <a href="{{url('/Dashboard/certifications/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -220,7 +220,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_groups}}</span>
       <a href="{{url('/Dashboard/groups/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -234,7 +234,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_pages}}</span>
       <a href="{{url('/Dashboard/pages/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -248,7 +248,7 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_seminars}}</span>
       <a href="{{url('/Dashboard/seminars/create')}}"><span>+</span></a>
     </div>
   </div>
@@ -265,13 +265,13 @@
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
+      <span>{{$nbr_trainings}}</span>
       <a href="{{url('/Dashboard/trainings/create')}}"><span>+</span></a>
     </div>
   </div>
   <div class="db-card">
     <div class="left-side">
-      <a href="{{url('/Dashboard/functions')}}">
+      <a href="{{url('/Dashboard/jfunctions')}}">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
         	<g>
@@ -303,12 +303,12 @@
         		</g>
         	</g>
         </svg>
-         functions
+         jfunctions
        </a>
     </div>
     <div class="right-side">
-      <span>{{rand(1,300)}}</span>
-      <a href="{{url('/Dashboard/functions/create')}}"><span>+</span></a>
+      <span>{{$nbr_functions}}</span>
+      <a href="{{url('/Dashboard/jfunctions/create')}}"><span>+</span></a>
     </div>
   </div>
 </div>

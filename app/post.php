@@ -18,7 +18,7 @@ class post extends Model
       return $this->belongsTo('App\User');
     }
 
-    
+
 
     //Number of likes
     public function likes(){
@@ -28,7 +28,6 @@ class post extends Model
     // true
     public function like(){
       return true;
-
     }
 
 

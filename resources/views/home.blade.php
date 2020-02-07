@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+
 @extends('layouts.main')
 
-=======
-@extends('layouts.app')
->>>>>>> 91f95a694ca9e4f49bf4b00136aaabb03d737cae
 @section('content')
 <!-- Hero section -->
 <section id="hero">
@@ -75,14 +72,11 @@
     <h1 class="section-title" style="color:var(--main-color)">À qui s’adresse GETAJOB ?</h1>
     <p>À toute personne cherchant à construire sa carrière professionnelle</p>
   </div>
-<<<<<<< HEAD
-  <div class="section-right">
 
-=======
+  <div class="section-right">
   <div class="section-right" style="position:relative">
     <div class="section-bg">
     </div>
->>>>>>> 91f95a694ca9e4f49bf4b00136aaabb03d737cae
   </div>
 </section>
 @endsection

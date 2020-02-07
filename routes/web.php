@@ -190,6 +190,7 @@ ROUTES
 ***********/
 Route::group(['middleware' => ['logged_in']], function () {
   Route::get('/groups','groupsController@groups');
+  Route::get('/profiles','friendsController@profiles');
   Route::get('/groups/group/{id}','groupsController@group');
   Route::get('/seminars','seminarsController@seminars');
   Route::get('/seminars/seminar/{id}','seminarsController@seminar');

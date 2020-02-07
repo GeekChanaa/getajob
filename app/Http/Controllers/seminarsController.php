@@ -31,7 +31,7 @@ class seminarsController extends Controller
     //Seminars Page
     public function seminars(){
       $data=[
-        'list_seminars' => seminar::all(),
+        'list_seminars' => seminar::with('user')->get(),
       ];
       return view('jobbing.seminars.seminars')->with($data);
     }

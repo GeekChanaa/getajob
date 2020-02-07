@@ -10,6 +10,15 @@ class friendsController extends Controller
 {
     //Find someone view
     public function profiles(){
-      return view('jobbing.friends.friends');
+      if(isset($_GET['search'])){
+        $list_users = User::where('name','like','%'.$_GET['search'].'%')->get();
+      }
+      else{
+        $list_users = User::all();
+      }
+      $data=[
+        'list_users' => $list_users,
+      ];
+      return view('jobbing.friends.friends')->with($data);
     }
 }

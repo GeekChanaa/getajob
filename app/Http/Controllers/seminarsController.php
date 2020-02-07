@@ -30,8 +30,14 @@ class seminarsController extends Controller
 
     //Seminars Page
     public function seminars(){
+      if(isset($_GET['title'])){
+        $list_seminars = seminar::where('title','like','%'.$_GET['title'].'%')->get();
+      }
+      else{
+        $list_seminars = seminar::with('user')->get();
+      }
       $data=[
-        'list_seminars' => seminar::with('user')->get(),
+        'list_seminars' => $list_seminars,
       ];
       return view('jobbing.seminars.seminars')->with($data);
     }

@@ -42,8 +42,14 @@ class trainingsController extends Controller
 
   // Trainings
   public function trainings(){
+    if(isset($_GET['search'])){
+      $list_trainings = training::where('title','like','%'.$_GET['search'].'%')->get();
+    }
+    else{
+      $list_trainings = training::all();
+    }
     $data=[
-      'list_trainings' => training::all(),
+      'list_trainings' => $list_trainings,
     ];
     return view('jobbing.trainings.trainings')->with($data);
   }

@@ -8,7 +8,7 @@
     <h1>Find the right profile for your interest</h1>
     <div class="heading-border"></div>
     <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum laudantium deserunt, incidunt, hic ad perferendis aspernatur suscipit minus sit amet, odio eos eligendi pariatur praesentium, quo natus in doloremque. Ipsa.</h2>
-    <form class="search-form" action="">
+    <form class="search-form" action="{{url('/profiles')}}" method="get">
       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="28.931px" height="28.932px" viewBox="0 0 28.931 28.932" style="enable-background:new 0 0 28.931 28.932;"
          xml:space="preserve">
@@ -22,7 +22,7 @@
         </g>
       </svg>
       <label for="search-input">Search for seminar by domain, or title ..</label>
-      <input type="text" id="search-input" autocomplete="off">
+      <input name="search" type="text" id="search-input" autocomplete="off">
     </form>
   </div>
   <div id="hero-profiles">
@@ -63,11 +63,12 @@ s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-4
 s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
 </svg>
 <div class="users-profiles row">
+  @foreach($list_users as $user)
   <div class="col-lg-3 profile-div">
     <div class="row col-lg-12">
       <div class="col-lg-8">
         <h5 class="profile-head"> Web developper </h5>
-        <span> Mr. Chanaa </span>
+        <span> {{$user->name}}</span>
       </div>
       <div class="col-lg-4" style="background-image:url('../avatar.jpg');background-size: cover ; height:100px">
 
@@ -81,12 +82,8 @@ s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
       </ul>
     </div>
   </div>
-  <div class="col-lg-3 profile-div">
+  @endforeach
 
-  </div>
-  <div class="col-lg-3 profile-div">
-
-  </div>
 </div>
 
 

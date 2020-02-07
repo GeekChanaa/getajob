@@ -21,7 +21,7 @@
         </g>
       </svg>
       <label for="search-input">Search for seminar by domain, or title ..</label>
-      <input type="text" id="search-input" autocomplete="off">
+      <input name="search" type="text" id="search-input" autocomplete="off">
     </form>
   </div>
   <div id="hero-te">

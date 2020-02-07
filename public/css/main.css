@@ -1581,18 +1581,18 @@ Profiles VIEWS
 
 /* Main navbar */
 .login{
-  background: var(--main-color);
-  padding: 0.5em 1.2em !important;
-  color: white !important;
-  margin: .5em 1em;
-  border: 2px solid var(--main-color);
+  background: var(--main-color) !important;
+  padding: 0.1em 1.5em !important;
+  color:#fff !important;
+  margin: .5em 1em !important;
+  border: 2px solid var(--main-color) !important;
 }
 .register{
   background: none;
   border: 2px solid var(--main-color);
-  padding: 0.5em 1.2em !important;
-  color: #949494;
-  margin: .5em 1em;
+  padding: 0.1em 1.5em !important;
+  color: #949494 !important;
+  margin: .5em 1em !important;
 }
 
 

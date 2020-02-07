@@ -284,7 +284,7 @@ a:hover{
 .feed-wrapper{
   display: flex;
   flex-wrap:nowrap;
-  padding:0 1.5rem;
+  padding:0 5rem;
   align-items: flex-start;
 }
 .feed-wrapper .left-side,.feed-wrapper .right-side{
@@ -1308,9 +1308,6 @@ th, td {
 .seminar:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.seminar-header{
-  display: flex;
-}
 .seminar-avatar{
   width: 60px;
   height: 60px;
@@ -1469,6 +1466,17 @@ th, td {
   line-height: 48px;
 }
 
+<<<<<<< HEAD
+/* Seminar infos page */
+
+.seminar-infos{
+
+}
+.seminar-header{
+
+}
+
+=======
 .trainings p{
   font-size: 15px;
   font-weight: 400;
@@ -1571,11 +1579,53 @@ th, td {
 Profiles VIEWS
 ***/
 
+/* Main navbar */
+.login{
+  background: var(--main-color);
+  padding: 0.5em 1.2em !important;
+  color: white !important;
+  margin: .5em 1em;
+  border: 2px solid var(--main-color);
+}
+.register{
+  background: none;
+  border: 2px solid var(--main-color);
+  padding: 0.5em 1.2em !important;
+  color: #949494;
+  margin: .5em 1em;
+}
 
 
+/* Feed navbar */
+.nav-link{
+  padding: .5rem 1rem;
+  font-weight: 600;
+  color: #b9b9b9 !important;
+  margin:auto .5em;
+  line-height: 40px;
+  transition:all .5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.nav-link:hover{
+  color:var(--main-color) !important;
+}
+.nav-avatar{
+  background: var(--main-color);
+  width: 40px;
+  height: 40px;
+  line-height: 32px;
+  font-size: 1.2rem;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  border: 3px solid #6993ef;
+  margin-right: 0.3rem;
+}
 
-
-
+.no-items{
+  font-weight: 600;
+  color: #d6d6d6;
+}
 /* Media Queries */
 @media only screen and (max-width: 1100px) {
 

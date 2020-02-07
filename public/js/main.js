@@ -1,3 +1,4 @@
+
 // Search form animation
 $(".search-form input").focus(function(e){
   $(this).siblings("label,svg").addClass('moveup');

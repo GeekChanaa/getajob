@@ -19,12 +19,12 @@
         <button class="postadd">Post</button>
     </div>
     <div class="user-actions">
-      <a class="btn" href="{{url('/feed/create_page')}}">
+      <a id="create_page_feed" aria-describedby="tooltip" class="btn create-feed" href="{{url('/feed/create_page')}}">
         <svg id="Layer_1" enable-background="new 0 0 496.26 496.26" height="512" viewBox="0 0 496.26 496.26" width="512" xmlns="http://www.w3.org/2000/svg">
           <path d="m302.765 20.395h-257.307c-24.922 0-45.198 20.275-45.198 45.197 0 329.751-1.925 309.456 4.692 316.073 96.335 96.334 90.227 90.74 93.596 92.406 4.818 2.418-8.366 1.692 204.216 1.692 24.922 0 45.198-20.275 45.198-45.197v-364.974c.001-24.922-20.275-45.197-45.197-45.197zm-213.086 400.742-34.791-34.791h34.791zm226.284 9.429c0 7.277-5.92 13.197-13.198 13.197h-181.086v-73.418c0-8.837-7.164-16-16-16h-73.419v-288.753c0-7.277 5.92-13.197 13.198-13.197h257.307c7.277 0 13.198 5.92 13.198 13.197zm106.149-364.974v364.975c0 24.922-20.276 45.197-45.198 45.197-8.836 0-16-7.163-16-16s7.164-16 16-16c7.277 0 13.198-5.92 13.198-13.197v-364.975c0-7.277-5.92-13.197-13.198-13.197-8.836 0-16-7.163-16-16s7.164-16 16-16c24.922 0 45.198 20.275 45.198 45.197zm74.148 0v364.975c0 24.922-20.275 45.197-45.198 45.197-8.836 0-16-7.163-16-16s7.164-16 16-16c7.277 0 13.198-5.92 13.198-13.197v-364.975c0-7.277-5.92-13.197-13.198-13.197-8.836 0-16-7.163-16-16s7.164-16 16-16c24.923 0 45.198 20.275 45.198 45.197z"/>
         </svg>
       </a>
-      <a class="btn" href="{{url('/feed/create_group')}}">
+      <a id="create_group_feed" aria-describedby="tooltip" class="btn create-feed" href="{{url('/feed/create_group')}}">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         	 viewBox="0 0 372.483 372.483" style="enable-background:new 0 0 372.483 372.483;" xml:space="preserve">
         	<g id="XMLID_10_">
@@ -172,20 +172,20 @@
         	</g>
         </svg>
       </a>
-      <a class="btn" href="{{url('/feed/create_event')}}">
+      <a id="create_event_feed" aria-describedby="tooltip" class="btn create-feed" href="{{url('/feed/create_event')}}">
         <svg height="512pt" viewBox="-6 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
           <path d="m227.65625 357.507812c2.835938 2.832032 6.679688 4.425782 10.691406 4.425782 4.007813 0 7.851563-1.589844 10.6875-4.425782l53.972656-53.972656c5.90625-5.90625 5.90625-15.476562 0-21.382812-5.902343-5.902344-15.476562-5.902344-21.378906 0l-43.28125 43.28125-19.734375-19.734375c-5.90625-5.902344-15.476562-5.902344-21.382812 0-5.902344 5.902343-5.902344 15.476562 0 21.382812zm0 0"/>
           <path d="m250.121094 439.84375c66.175781 0 120.011718-53.839844 120.011718-120.015625s-53.835937-120.011719-120.011718-120.011719c-66.179688 0-120.015625 53.835938-120.015625 120.011719s53.839843 120.015625 120.015625 120.015625zm0-209.792969c49.503906 0 89.777344 40.273438 89.777344 89.777344s-40.273438 89.78125-89.777344 89.78125-89.78125-40.277344-89.78125-89.78125 40.277344-89.777344 89.78125-89.777344zm0 0"/>
           <path d="m451.34375 32.191406h-27.574219v-17.074218c0-8.347657-6.769531-15.117188-15.117187-15.117188s-15.117188 6.769531-15.117188 15.117188v17.074218h-29.707031v-17.074218c0-8.347657-6.769531-15.117188-15.121094-15.117188-8.347656 0-15.117187 6.769531-15.117187 15.117188v17.074218h-166.9375v-17.074218c0-8.347657-6.769532-15.117188-15.121094-15.117188-8.347656 0-15.117188 6.769531-15.117188 15.117188v17.074218h-29.707031v-17.074218c0-8.347657-6.769531-15.117188-15.121093-15.117188-8.347657 0-15.117188 6.769531-15.117188 15.117188v17.074218h-27.578125c-26.957031 0-48.890625 21.933594-48.890625 48.894532v382.023437c0 26.957031 21.933594 48.890625 48.890625 48.890625h402.453125c26.960938 0 48.890625-21.933594 48.890625-48.890625v-382.023437c0-26.960938-21.933594-48.894532-48.890625-48.894532zm18.652344 430.917969c0 10.285156-8.367188 18.65625-18.652344 18.65625h-402.453125c-10.285156 0-18.65625-8.371094-18.65625-18.65625v-305.210937h439.761719zm-439.761719-382.023437c0-10.289063 8.371094-18.65625 18.65625-18.65625h27.578125v17.074218c0 8.347656 6.769531 15.117188 15.121094 15.117188 8.347656 0 15.117187-6.769532 15.117187-15.117188v-17.074218h29.707031v17.074218c0 8.347656 6.769532 15.117188 15.121094 15.117188 8.347656 0 15.117188-6.769532 15.117188-15.117188v-17.074218h166.9375v17.074218c0 8.347656 6.769531 15.117188 15.121094 15.117188 8.347656 0 15.117187-6.769532 15.117187-15.117188v-17.074218h29.707031v17.074218c0 8.347656 6.769532 15.117188 15.117188 15.117188 8.351562 0 15.121094-6.769532 15.121094-15.117188v-17.074218h27.570312c10.285156 0 18.65625 8.367187 18.65625 18.65625v46.574218h-439.765625zm0 0"/>
         </svg>
       </a>
-      <a class="btn" href="{{url('/feed/create_seminar')}}">
+      <a id="create_seminar_feed" aria-describedby="tooltip" class="btn create-feed" href="{{url('/feed/create_seminar')}}">
         <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
           <path d="m482 181c0-33.085938-26.914062-60-60-60s-60 26.914062-60 60 26.914062 60 60 60 60-26.914062 60-60zm-60 30c-16.542969 0-30-13.457031-30-30s13.457031-30 30-30 30 13.457031 30 30-13.457031 30-30 30zm0 0"/>
           <path d="m152 331h180v181h180v-181c0-49.625-40.375-90-90-90h-90v-241h-332v271h152zm330 0v151h-120v-151c0-9.394531 1.96875-14.53125 4.867188-30h-184.867188v-30h225v90h30v-88.101562c25.847656 6.675781 45 30.195312 45 58.101562zm-452-301h272v211h-128.785156l-75-75 23.785156-23.785156 45 45 75-75v23.785156h30v-75h-75v30h23.785156l-53.785156 53.785156-45-45-55.605469 55.609375 10.605469 10.605469-10.605469 10.605469 64.390625 64.394531h-100.785156zm0 0"/>
         </svg>
       </a>
-      <a class="btn" href="{{url('/feed/create_training')}}">
+      <a id="create_training_feed" aria-describedby="tooltip" class="btn create-feed" href="{{url('/feed/create_training')}}">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         	 width="477.005px" height="477.005px" viewBox="0 0 477.005 477.005" style="enable-background:new 0 0 477.005 477.005;"
         	 xml:space="preserve">
@@ -420,7 +420,88 @@
 </div>
 
 
+<div style="display:none" id="tooltip_group" role="tooltip">Create Group</div>
+<div style="display:none" id="tooltip_page" role="tooltip">Create Page</div>
+<div style="display:none" id="tooltip_seminar" role="tooltip">Create Seminar</div>
+<div style="display:none" id="tooltip_training" role="tooltip">Create Training</div>
+<div style="display:none" id="tooltip_event" role="tooltip">Create Event</div>
 <script type="text/javascript">
+
+  const button1 = document.querySelector('#create_group_feed');
+  const tooltip1 = document.querySelector('#tooltip_group');
+  const button2 = document.querySelector('#create_page_feed');
+  const tooltip2 = document.querySelector('#tooltip_page');
+  const button3 = document.querySelector('#create_event_feed');
+  const tooltip3 = document.querySelector('#tooltip_event');
+  const button4 = document.querySelector('#create_seminar_feed');
+  const tooltip4 = document.querySelector('#tooltip_seminar');
+  const button5 = document.querySelector('#create_training_feed');
+  const tooltip5 = document.querySelector('#tooltip_training');
+
+  $(function() {
+  $('#create_group_feed').mouseenter(function() {
+    $('#tooltip_group').css('display', '');
+  });
+  $('#create_group_feed').mouseleave(function() {
+    $('#tooltip_group').css('display', 'none');
+  });
+});
+
+$(function() {
+$('#create_page_feed').mouseenter(function() {
+  $('#tooltip_page').css('display', '');
+});
+$('#create_page_feed').mouseleave(function() {
+  $('#tooltip_page').css('display', 'none');
+});
+});
+
+$(function() {
+$('#create_event_feed').mouseenter(function() {
+  $('#tooltip_event').css('display', '');
+});
+$('#create_event_feed').mouseleave(function() {
+  $('#tooltip_event').css('display', 'none');
+});
+});
+
+$(function() {
+$('#create_seminar_feed').mouseenter(function() {
+  $('#tooltip_seminar').css('display', '');
+});
+$('#create_seminar_feed').mouseleave(function() {
+  $('#tooltip_seminar').css('display', 'none');
+});
+});
+
+$(function() {
+$('#create_training_feed').mouseenter(function() {
+  $('#tooltip_training').css('display', '');
+});
+$('#create_training_feed').mouseleave(function() {
+  $('#tooltip_training').css('display', 'none');
+});
+});
+  // Pass the button, the tooltip, and some options, and Popper will do the
+  // magic positioning for you:
+  Popper.createPopper(button1, tooltip1, {
+    placement: 'bottom',
+  });
+  Popper.createPopper(button2, tooltip2, {
+    placement: 'top',
+  });
+  Popper.createPopper(button3, tooltip3, {
+    placement: 'top',
+  });
+  Popper.createPopper(button4, tooltip4, {
+    placement: 'bottom',
+  });
+  Popper.createPopper(button5, tooltip5, {
+    placement: 'top',
+  });
+
+
+
 // interested in event
 $(document).on("click", ".follow-page", function(e){
   var id = $(this).data('pageid');

@@ -26,8 +26,9 @@ class trainingsController extends Controller
     $training->phone = $request->phone;
     $training->email = $request->email;
     $training->school = $request->school;
+    $training->user_id = Auth::user()->id;
     $training->save();
-    return redirect('/feed');
+    return redirect('/trainings');
   }
 
   // Interested in training

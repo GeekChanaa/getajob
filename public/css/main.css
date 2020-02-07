@@ -1238,9 +1238,6 @@ th, td {
   width: 250px;
   margin-right: 2rem;
 }
-.seminar-header{
-  display: flex;
-}
 .seminar-avatar{
   width: 60px;
   height: 60px;
@@ -1329,6 +1326,16 @@ th, td {
   border: 2px solid #85a9f7;
   border-radius: 1.5em;
 }
+
+/* Seminar infos page */
+
+.seminar-infos{
+
+}
+.seminar-header{
+  
+}
+
 /* Media Queries */
 @media only screen and (max-width: 1100px) {
 
